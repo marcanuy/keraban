@@ -4,14 +4,43 @@ An inflexible, opinionated CMS based on Wagtail.
 Design a corporate website and give your client an user to
 keep the content they desire up to date.
 
-# Goal
+<!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
+**Table of Contents**
+
+- [keraban](#keraban)
+- [Goals](#goals)
+    - [Design Principles](#design-principles)
+- [Explanation](#explanation)
+- [Features](#features)
+- [Installation](#installation)
+- [Running](#running)
+    - [Admin](#admin)
+- [To do](#to-do)
+- [How to](#how-to)
+    - [Add a Page to main menu](#add-a-page-to-main-menu)
+    - [Add a feature](#add-a-feature)
+    - [Change Business info](#change-business-info)
+        - [Change business data](#change-business-data)
+        - [Add business social network](#add-business-social-network)
+
+<!-- markdown-toc end -->
+
+# Goals
 
 Build and deploy websites easily that **can be maintained by non
 developer users**.
 
+## Design Principles
+
+- Consistent look & feel through all web pages
+- Implementation of web best practices:
+  - *Semantic web*: Schema.org meta tags
+  - Optimized for Search Engines (SEO, Google's richsnippets)
+- Fully responsive
+
 # Explanation
 
-Most corporate websites shares the same content structure, they
+Most corporate websites shares the same content structure, their needs
 typically consist of the following pages:
 
 - homepage
@@ -25,6 +54,8 @@ This structure is most seen in websites for:
 - Clinics
 - Dentists
 - Business
+- Any organization that has a physical address and offer some kind of
+  service.
 
 # Features
 
@@ -67,18 +98,46 @@ Super admin credentials:
 - user: admin
 - pass: mypass1234
 
+# How to
+
+## Add a Page to main menu
+
+In **Admin** go to **Page / Edit / Promote** and select **Show in menus**.
+
+## Add a feature
+
+In **Admin** go to **Page / Home**, locate the **Features index page**
+and **Add Child Page**.
+
+## Change Business info
+
+### Change business data
+
+In **Admin** go to **Business Misc / Businesses** and **Edit**
+Business info.
+
+### Add business social network
+
+In **Admin** go to **Business Misc / Social Networks** and locate the
+button **Add Social Profiles**.
+
+
 # To do
 
 - make carousel on homepage hero items
-- load bootstrap from nodejs
+- add google maps api key
+- add business opening hours snippet
+- load bootstrap from nodejs or django/wagtail package
 - add schema
   - <https://developers.google.com/search/docs/data-types/local-business>
   - <https://developers.google.com/search/docs/data-types/breadcrumb>
   - <https://developers.google.com/webmasters/social-markup/#adding_structured_markup_to_your_site>
-- business data as settings? <http://docs.wagtail.io/en/v2.0/reference/contrib/settings.html>
+- business data and social profiles as settings? <http://docs.wagtail.io/en/v2.0/reference/contrib/settings.html>
 - add sharing on social buttons <https://github.com/fcurella/django-social-share#templates>
 - footer with icons and list (similar to
   <https://stackoverflow.com/q/48519250/1165509> and <https://getbootstrap.com/docs/4.0/examples/pricing/>)
 - Possibility to use any numbers of featurettes pages in homepage (ListBlock)
   implementing it as a StreamBlock
 - add favicon
+- extend support for more specific Organization types <http://schema.org/Organization>
+- better integration of location page and business data address/location
