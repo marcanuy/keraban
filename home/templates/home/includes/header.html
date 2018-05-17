@@ -8,8 +8,8 @@
             <img class="first-slide" src="{{ image.url }}" alt="First slide">
             <div class="container">
               <div class="carousel-caption">
-                <h1>{{ page.title }}. <small class="text-muted">{{page.subtitle}}</small></h1>
-                <p>{{ page.introduction }}.</p>
+                <h1>{{ page.title }}. {% if page.subtitle %}<small class="text-muted">{{page.subtitle}}</small>{% endif %}</h1>
+                {% if page.introduction %}<p>{{ page.introduction }}.</p>{% endif %}
               </div>
             </div>
           </div>
@@ -20,8 +20,8 @@
       <div class="container plain-header py-5">
     <div class="row">
 	<div class="col">
-	    <h1>{{ page.title }} <small class="text-muted">{{page.subtitle}}</small></h1>
-	    <p class="intro">{{ page.introduction|richtext }}</p>
+	    <h1>{{ page.title }} {% if page.subtitle %}<small class="text-muted">{{page.subtitle}}</small>{% endif %}</h1>
+	    {% if page.introduction %}<p class="intro">{{ page.introduction|richtext }}</p>{% endif %}
 	</div>
     </div>
     <hr >

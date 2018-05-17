@@ -30,3 +30,10 @@ def get_footer_business_data(context):
         'business': business,
         'profiles': profiles
     }
+
+@register.inclusion_tag('tags/business_contact.html', takes_context=True)
+def get_business_contact(context):
+    business = ""
+    if Businesses.objects.first() is not None:
+        business = Businesses.objects.first()
+    return {'business': business}

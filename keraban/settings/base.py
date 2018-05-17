@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'features',
     'search',
     'locations',
+    'contact',
 
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
