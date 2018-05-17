@@ -167,6 +167,7 @@ class StandardPage(Page):
     ])
 
     content_panels = Page.content_panels + [
+        FieldPanel('subtitle', classname="full"),
         FieldPanel('introduction', classname="full"),
         ImageChooserPanel('image'),
         StreamFieldPanel('body'),
