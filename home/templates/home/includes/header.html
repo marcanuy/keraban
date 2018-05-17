@@ -1,0 +1,29 @@
+{% load wagtailimages_tags wagtailcore_tags %}
+
+{% if self.image %}
+    {% image page.image fill-1920x600 as image %}
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="first-slide" src="{{ image.url }}" alt="First slide">
+            <div class="container">
+              <div class="carousel-caption">
+                <h1>{{ page.title }}. <small class="text-muted">{{page.subtitle}}</small></h1>
+                <p>{{ page.introduction }}.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+{% else %}
+      <div class="container plain-header py-5">
+    <div class="row">
+	<div class="col">
+	    <h1>{{ page.title }} <small class="text-muted">{{page.subtitle}}</small></h1>
+	    <p class="intro">{{ page.introduction|richtext }}</p>
+	</div>
+    </div>
+    <hr >
+</div>
+{% endif %}
