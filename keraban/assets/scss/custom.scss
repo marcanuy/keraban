@@ -1,0 +1,11 @@
+@import "custom_variables";
+
+// Include parts of Bootstrap overwriting variables
+@import "../bootstrap-4.0.0/scss/functions";
+@import "../bootstrap-4.0.0/scss/variables";
+@import "../bootstrap-4.0.0/scss/mixins";
+
+/* Include the rest of Bootstrap */
+@import "../bootstrap-4.0.0/scss/bootstrap";
+
+@import "custom_styles";
