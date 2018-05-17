@@ -31,7 +31,7 @@ This structure is most seen in websites for:
 - Based on Wagtail (Django CMS)
   - Amazing back-end
 - Fully Responsive (Bootstrap 4 grid system)
-- Icons (FontAwesome)
+- Icons (FontAwesome <https://fontawesome.com/v4.7.0/icons/>)
 - SEO
   - Using Schema.org
   - Social Markup <https://developers.google.com/webmasters/social-markup>
@@ -66,3 +66,19 @@ Super admin credentials:
 
 - user: admin
 - pass: mypass1234
+
+# To do
+
+- make carousel on homepage hero items
+- load bootstrap from nodejs
+- add schema
+  - <https://developers.google.com/search/docs/data-types/local-business>
+  - <https://developers.google.com/search/docs/data-types/breadcrumb>
+  - <https://developers.google.com/webmasters/social-markup/#adding_structured_markup_to_your_site>
+- business data as settings? <http://docs.wagtail.io/en/v2.0/reference/contrib/settings.html>
+- add sharing on social buttons <https://github.com/fcurella/django-social-share#templates>
+- footer with icons and list (similar to
+  <https://stackoverflow.com/q/48519250/1165509> and <https://getbootstrap.com/docs/4.0/examples/pricing/>)
+- Possibility to use any numbers of featurettes pages in homepage (ListBlock)
+  implementing it as a StreamBlock
+- add favicon
