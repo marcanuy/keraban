@@ -18,12 +18,11 @@
                 <p>{{ page.hero_text }}.</p>
                 <p>
                     {% if page.hero_cta_link %}
-		    <a class="hero-cta-link hvr-icon-forward" href="{% pageurl page.hero_cta_link %}" role="button">{{ page.hero_cta }}</a></p>
+		    <a class="hero-cta-link hvr-icon-forward" href="{% pageurl page.hero_cta_link %}" role="button">{{ page.hero_cta }}</a>
                     {% else %}
                     {{ page.hero_cta }}
                     {% endif %}
-
-		    
+		</p>
               </div>
             </div>
           </div>
@@ -136,7 +135,7 @@
 	</div>
 	<div class="row">
 	    <div class="col d-flex justify-content-center">
-		<a href="{% pageurl page.featured_features.specific %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Ver Servicios</a>
+		<a href="{% pageurl page.featured_features.specific %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">View Features</a>
 	    </div>
 	</div>
     </div>
