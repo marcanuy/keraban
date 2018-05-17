@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load wagtailimages_tags wagtailcore_tags %}
+
+{% block body_class %}template-standardpage{% endblock %}
+
+{% block content %}
+{% include "home/includes/header.html" %}
+<div class="standardpage">
+    {% block bodycontent %}
+    {% endblock bodycontent%}
+</div>
+{% endblock content %}
