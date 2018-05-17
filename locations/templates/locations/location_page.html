@@ -1,0 +1,62 @@
+{% extends "home/standard_page.html" %}
+{% load wagtailimages_tags navigation_tags business_tags %}
+
+{% block head-extra %}
+<style>
+ /* Following two selectors needed for Google map embed */
+ #map {
+     height: 100%;
+ }
+</style>
+{% endblock head-extra %}
+
+{% block bodycontent %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-7 location-body">
+            {{ page.body }}
+        </div>
+    </div>
+</div>
+
+<div class="container-flex">
+    {% if business.address %}
+    <div class="row">
+        <div class="col-md-2 offset-md-5 location-address">
+            <h3>Address</h3>
+            <address>{{ busniess.address }}</address>
+        </div>
+    </div>
+    {% endif %}
+    
+    <div class="map-container">
+        <div id="map" class="maps embed-container"></div>
+    </div>
+</div>
+{% with data=business.geo_coordinates_as_list %}
+<script>
+ var map;
+ function initMap() {
+     map = new google.maps.Map(document.getElementById('map'), {
+         center: {
+             lat: {{data.0}},
+             lng: {{data.1}}
+         },
+         zoom: 15,
+         scrollwheel: false
+     });
+     var marker = new google.maps.Marker({
+         position: {
+             lat: {{lat}},
+             lng: {{long}}
+         },
+         map: map,
+         title: '{{page.title}}'
+     });
+ }
+</script>
+	{% endwith %}
+<script src="https://maps.googleapis.com/maps/api/js?key={{ google_map_api_key }}&callback=initMap" async defer></script>
+
+{% endblock bodycontent %}
