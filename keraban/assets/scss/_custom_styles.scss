@@ -1,5 +1,4 @@
 body {
-  padding-bottom: 3rem;
   color: #5a5a5a;
 }
 
@@ -39,7 +38,26 @@ body {
   margin-left: .75rem;
 }
 
+footer {
+    margin-top: 10em;
+}
 
+.site-footer {
+    margin: 2.5rem 0 0 0;
+    padding: 2.5rem 0;
+    color: #999;
+    text-align: center;
+    background-color: #f9f9f9;
+    border-top: .05rem solid #e5e5e5;
+
+    .fa {
+	padding-right: 5px;
+    }
+
+    p:last-child {
+	margin-bottom: 0;
+    }
+}
 
 // /* Global styles */
 // body {
