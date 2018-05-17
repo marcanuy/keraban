@@ -1,4 +1,5 @@
-{% load static %}
+{% load static wagtailfontawesome %}
+
 
 <meta charset="utf-8" />
 <title>
@@ -14,8 +15,7 @@
 <meta name="description" content="{% if self.search_description %}{{ self.search_description }}{% endif %}">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+{% fontawesome_css %} <!-- 4.7 -->
 
 {# Global stylesheets #}
 <!-- Custom CSS -->
