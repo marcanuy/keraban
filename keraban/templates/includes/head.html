@@ -1,0 +1,28 @@
+{% load static %}
+
+<meta charset="utf-8" />
+<title>
+    {% block title %}
+    {% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}
+    {% endblock %}
+    {% block title_suffix %}
+    {% with self.get_site.site_name as site_name %}
+    {% if site_name %}- {{ site_name }}{% endif %}
+    {% endwith %}
+    {% endblock %}
+</title>
+<meta name="description" content="{% if self.search_description %}{{ self.search_description }}{% endif %}">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+{# Global stylesheets #}
+<!-- Custom CSS -->
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+{% block head-extra %}
+{% endblock head-extra %}
