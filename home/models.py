@@ -113,11 +113,9 @@ class Businesses(models.Model):
     panels = [
         FieldPanel('name'),
         FieldPanel('email'),
-        FieldPanel('category'),
         FieldPanel('address'),
         FieldPanel('hours'),
         FieldPanel('phone'),
-        FieldPanel('attributes'),
         FieldPanel('description'),
         FieldPanel('geo_coordinates'),
         ImageChooserPanel('image'),
