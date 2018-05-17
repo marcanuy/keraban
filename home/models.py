@@ -143,9 +143,10 @@ class StandardPage(Page):
     """
     subtitle = models.CharField(
         max_length=255,
-        help_text='Write a subtitle for the page'
+        help_text='Write a subtitle for the page',
+        null=True,
+        blank=True,
     )
-
     introduction = models.TextField(
         help_text='Text to describe the page',
         blank=True)
@@ -159,10 +160,11 @@ class StandardPage(Page):
     )
 
     body = StreamField([
-        ('heading', blocks.CharBlock(classname="full title")),
-        ('paragraph', blocks.RichTextBlock()),
-        ('image', ImageChooserBlock()),
-    ])
+        ('heading', blocks.CharBlock(classname="full title", required=False)),
+        ('paragraph', blocks.RichTextBlock(required=False)),
+        ('image', ImageChooserBlock(required=False)),
+    ],                             null=True,
+                            blank=True)
 
     content_panels = Page.content_panels + [
         FieldPanel('subtitle', classname="full"),
