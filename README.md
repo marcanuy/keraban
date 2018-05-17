@@ -15,13 +15,15 @@ keep the content they desire up to date.
 - [Installation](#installation)
 - [Running](#running)
     - [Admin](#admin)
-- [To do](#to-do)
 - [How to](#how-to)
     - [Add a Page to main menu](#add-a-page-to-main-menu)
     - [Add a feature](#add-a-feature)
     - [Change Business info](#change-business-info)
         - [Change business data](#change-business-data)
         - [Add business social network](#add-business-social-network)
+- [To do](#to-do)
+- [Credits](#credits)
+- [Ideas and Questions](#ideas-and-questions)
 
 <!-- markdown-toc end -->
 
@@ -68,6 +70,7 @@ This structure is most seen in websites for:
   - Social Markup <https://developers.google.com/webmasters/social-markup>
   - Knowledge Graph card with details about the business <https://developers.google.com/search/docs/data-types/local-business>
 - SASS with Bootstrap variables available
+- Contact form with <https://formspree.io/> (doesn't need email server configuration)
 
 # Installation
 
@@ -124,6 +127,7 @@ button **Add Social Profiles**.
 
 # To do
 
+- add boostrap form classes to contact form template
 - make carousel on homepage hero items
 - add google maps api key
 - add business opening hours snippet
@@ -141,3 +145,14 @@ button **Add Social Profiles**.
 - add favicon
 - extend support for more specific Organization types <http://schema.org/Organization>
 - better integration of location page and business data address/location
+
+# Credits
+
+- Powered by <wagtail.io>
+- Inspired by the amazing Wagtail Bakery Demo
+  <https://github.com/wagtail/bakerydemo/>
+  
+# Ideas and Questions
+
+- <https://twitter.com/marcanuy/>
+- <https://github.com/marcanuy/keraban/issues>
