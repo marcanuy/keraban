@@ -1,0 +1,48 @@
+{% extends "home/standard_page.html" %}
+{% load static wagtailcore_tags gallery_tags %}
+
+{% block head-extra %}
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css" />
+{% if page.galery_type == "GRID" %}
+<link rel="stylesheet" href="{% static 'css/grid-gallery.css' %}">
+{% elif page.galery_type == "CARD" %}
+<link rel="stylesheet" href="{% static 'css/card-gallery.css' %}">
+{% elif page.galery_type == "COMP" %}
+<link rel="stylesheet" href="{% static 'css/compact-gallery.css' %}">
+{% endif %}
+
+{% endblock head-extra %}
+
+{% block bodycontent %}
+
+<div class="container">
+    <div class="row">
+	<div class="col">
+	    <p>{{ page.body|safe }}</p>
+	</div>
+    </div>
+</div>
+
+{% if page.galery_type == "GRID" %}
+{% gallery_grid page.collection %}
+{% elif page.galery_type == "CARD" %}
+{% gallery_card page.collection %}
+{% elif page.galery_type == "COMP" %}
+{% gallery_compact page.collection %}
+{% endif %}
+
+{% endblock bodycontent %}
+
+{% block extra_js %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+<script>
+ {% if page.galery_type == "GRID" %}
+ baguetteBox.run('.grid-gallery', { animation: 'slideIn'});
+ {% elif page.galery_type == "CARD" %}
+ baguetteBox.run('.cards-gallery', { animation: 'slideIn'});
+ {% elif page.galery_type == "COMP" %}
+ baguetteBox.run('.compact-gallery', { animation: 'slideIn'});
+ {% endif %}
+</script>
+{% endblock extra_js %}
