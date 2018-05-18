@@ -2,27 +2,31 @@ body {
   color: #5a5a5a;
 }
 
+.oppacity {
+    background: rgba(0, 0, 0, 0.75);
+}
+
 /* home carousel base class */
 .carousel {
     margin-bottom: 4rem;
-
 }
-    .carousel-caption {
-	bottom: 3rem;
-	z-index: 10;
-    }
 
-    .carousel-item {
-	height: 32rem;
-	background-color: #777;
-    }
-    .carousel-item > img {
-	position: absolute;
-	top: 0;
-	left: 0;
-	min-width: 100%;
-	height: 32rem;
-    }
+.carousel-caption {
+    bottom: 3rem;
+    z-index: 10;
+}
+
+.carousel-item {
+    height: 32rem;
+    background-color: #777;
+}
+.carousel-item > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    height: 32rem;
+}
 
 
 /* home page features display, center align the text within the columns */
@@ -58,6 +62,31 @@ footer {
 	margin-bottom: 0;
     }
 }
+
+/* Featurettes
+------------------------- */
+
+.featurette-divider {
+    margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+}
+
+.featurette-heading {
+    margin-top: 2rem;
+    font-size: 2rem;
+
+    @include media-breakpoint-up(sm) {
+	margin-top: 6rem;
+	font-size: 3rem;
+
+        padding: 20px;
+    	//font-size: 50px;
+    }
+
+    @include media-breakpoint-up(md) {
+    	margin-top: 1%;
+    }
+}
+
 
 // /* Global styles */
 // body {
@@ -1110,30 +1139,6 @@ footer {
 // .features .col-lg-4 p {
 //   margin-right: .75rem;
 //   margin-left: .75rem;
-// }
-
-// /* Featurettes
-// ------------------------- */
-
-// .featurette-divider {
-//     margin: 5rem 0; /* Space out the Bootstrap <hr> more */
-// }
-
-// .featurette-heading {
-//     margin-top: 2rem;
-//     font-size: 2rem;
-
-//     @include media-breakpoint-up(sm) {
-// 	margin-top: 6rem;
-// 	font-size: 3rem;
-
-//         padding: 20px;
-//     	//font-size: 50px;
-//     }
-
-//     @include media-breakpoint-up(md) {
-//     	margin-top: 1%;
-//     }
 // }
 
 // .business {

@@ -13,10 +13,10 @@
           <div class="carousel-item active">
             <img class="first-slide" src="{{ image.url }}" alt="First slide">
             <div class="container">
-              <div class="carousel-caption">
-                <h1>{{ page.title }}.</h1>
-                <p>{{ page.hero_text }}.</p>
-                <p>
+              <div class="carousel-caption text-white oppacity">
+                <h1><div class="">{{ page.title }}.</div></h1>
+                <p class="">{{ page.hero_text }}.</p>
+                <p class="">
                     {% if page.hero_cta_link %}
 		    <a class="hero-cta-link hvr-icon-forward" href="{% pageurl page.hero_cta_link %}" role="button">{{ page.hero_cta }}</a>
                     {% else %}
