@@ -29,7 +29,7 @@ keep the content they desire up to date.
 
 # Goals
 
-Build and deploy websites easily that **can be maintained by non
+Build and deploy websites that **can be easily maintained by non
 developer users**.
 
 ## Design Principles
@@ -39,6 +39,7 @@ developer users**.
   - *Semantic web*: Schema.org meta tags
   - Optimized for Search Engines (SEO, Google's richsnippets)
 - Fully responsive
+- Add and remove pages from backend
 
 # Explanation
 
@@ -70,13 +71,25 @@ This structure is most seen in websites for:
   - Social Markup <https://developers.google.com/webmasters/social-markup>
   - Knowledge Graph card with details about the business <https://developers.google.com/search/docs/data-types/local-business>
 - SASS with Bootstrap variables available
-- Contact form with <https://formspree.io/> (doesn't need email server configuration)
+- Contact form with <https://formspree.io/> (doesn't need email server
+  configuration)
+
+# Notes
+
+- static files: **whitenoise**
+	- locally with `runserver` and
+	- in production
+- environment variables: **django-dotenv**
+- media: TODO implement django-storages
 
 # Installation
 
 Create a virtual environment:
 
     mkvirtualenv --python=/usr/bin/python3.6 ~/.virtualenvs/keraban
+Or
+
+	python3.6 -m venv ~/.virtualenvs/keraban/
 	
 Clone the repo:
 
@@ -88,7 +101,7 @@ Use new site:
     echo `pwd` > ~/.virtualenvs/keraban/.project
 	workon keraban	
 
-# Running
+# Running locally
 
 ./manage.py runserver
 
@@ -101,6 +114,15 @@ Super admin credentials:
 - user: admin
 - pass: mypass1234
 
+# Deploy
+
+Adjust after deployment:
+
+- Use `settings/production.py`
+- Set environment variables:
+  - ALLOWED_HOSTS (DJANGO_ALLOWED_HOSTS)
+  - customize `/_env.skeleton` and copy it to `/.env` 
+	- <https://github.com/jpadilla/django-dotenv>
 # How to
 
 ## Add a Page to main menu
@@ -127,6 +149,7 @@ button **Add Social Profiles**.
 
 # To do
 
+- change featurettes to a flexible streamfield of alternating pages
 - add boostrap form classes to contact form template
 - make carousel on homepage hero items
 - add google maps api key
@@ -151,6 +174,7 @@ button **Add Social Profiles**.
 - Powered by <wagtail.io>
 - Inspired by the amazing Wagtail Bakery Demo
   <https://github.com/wagtail/bakerydemo/>
+- Galleries layout based on <https://tutorialzine.com/2018/03/3-amazing-bootstrap-4-gallery-templates>
   
 # Ideas and Questions
 
