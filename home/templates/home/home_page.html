@@ -1,7 +1,11 @@
 {% extends "base.html" %}
-{% load wagtailimages_tags wagtailcore_tags %}
+{% load wagtailimages_tags wagtailcore_tags gallery_tags static %}
 
 {% block body_class %}template-homepage{% endblock %}
+
+{% block head-extra %}
+<link rel="stylesheet" href="{% static 'css/compact-gallery.css' %}">
+{% endblock head-extra %}
 
 {% block content %}
 <div class="homepage">
@@ -14,8 +18,8 @@
             <img class="first-slide" src="{{ image.url }}" alt="First slide">
             <div class="container">
               <div class="carousel-caption text-white oppacity">
-                <h1><div class="">{{ page.title }}.</div></h1>
-                <p class="">{{ page.hero_text }}.</p>
+                <h1><div class="">{{ page.title }}</div></h1>
+                <p class="">{{ page.hero_text }}</p>
                 <p class="">
                     {% if page.hero_cta_link %}
 		    <a class="hero-cta-link hvr-icon-forward" href="{% pageurl page.hero_cta_link %}" role="button">{{ page.hero_cta }}</a>
@@ -31,9 +35,8 @@
 
 
     <div class="container">
-
+	{% if page.promo_title %}
 	<hr class="featurette-divider">
-
 	<div class="row featurette">
 	    <div class="col-xs-12 col-md-7">
 		<h2 class="featurette-heading">{{ page.promo_title }} <span class="text-muted">{{ page.promo_subtitle }}</span></h2>
@@ -44,13 +47,14 @@
 		<img class="featurette-image img-fluid mx-auto" src="{{promo_img.url}}" />
 	    </div>
 	</div>
+	{% endif %}
 
 	<hr class="featurette-divider">
 
 	{% if page.featured_section_1 %}
 	<div class="row featurette">
 	    <div class="col-xs-12 col-md-7 order-md-2">
-		<h2 class="featurette-heading">{{page.featured_section_1.title}}. <span class="text-muted">Espacios adaptables.</span></h2>
+		<h2 class="featurette-heading">{{page.featured_section_1.title}} <span class="text-muted">{% if page.featured_section_1.specific.subtitle %}{{page.featured_section_1.specific.subtitle}}{% endif %}</span></h2>
 		<p class="lead">{{page.featured_section_1.specific.introduction}}</p>
 		
 		<a href="{% pageurl page.featured_section_1.specific %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Ver mas</a>
@@ -61,11 +65,13 @@
 	    </div>
 	</div>
 	{% endif %}
+
+	{% if page.featured_section_2 %}
 	<hr class="featurette-divider">
 	
 	<div class="row">
             <div class="col-md-12 feature-2">
-		{% if page.featured_section_2 %}
+		
 		<h2>{{ page.featured_section_2_title }}</h2>
                 <div class="featured-children row feature-2-row">
                     {% for childpage in page.featured_section_2.specific.children|slice:"3" %}
@@ -82,10 +88,12 @@
                     </li>
                     {% endfor %}
                 </div>
-		{% endif %}
             </div>
 	</div>
+	{% endif %}
     </div>
+
+    <hr class="featurette-divider">
 
     <div class="container">
 	<div class="row">
@@ -108,6 +116,8 @@
             </div>
 	</div>
     </div>
+
+    <hr class="featurette-divider">
 
     {% if page.featured_features %}
     <div class="container features">
@@ -140,5 +150,29 @@
 	</div>
     </div>
     {% endif %}
+
+    <hr class="featurette-divider">
+
+    {% if page.featured_gallery %}
+    <div class="container gallery">
+	<div class="row">
+	    <div class="col">
+		<h2 class="featurette-heading text-center mb-3 pb-3">{{ page.featured_gallery.specific.title }}</h2>
+	    </div>
+	</div>
+    </div>
+    {% gallery_compact page.featured_gallery.specific.collection %}
+
+    {% endif %}
+
 </div> <!-- homepage -->
 {% endblock %}
+
+{% block extra_js %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+<script>
+ baguetteBox.run('.compact-gallery', {
+     animation: 'slideIn',
+ });
+</script>
+{% endblock extra_js %}

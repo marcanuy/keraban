@@ -253,6 +253,16 @@ class HomePage(Page):
         verbose_name='Featured features page'
     )
 
+    featured_gallery = models.ForeignKey(
+        'wagtailcore.Page',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text='Gallery section.',
+        verbose_name='Gallery section at homepage'
+    )
+
     content_panels = Page.content_panels + [
         MultiFieldPanel([
             ImageChooserPanel('image'),
@@ -272,6 +282,7 @@ class HomePage(Page):
                 PageChooserPanel('featured_section_2'),
                 ]),
             PageChooserPanel('featured_features'),
+            PageChooserPanel('featured_gallery'),
         ], heading="Featured homepage sections", classname="collapsible")
     ]
 
