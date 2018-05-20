@@ -1,0 +1,10 @@
+# change this files to .env with your own values
+
+DJANGO_DEBUG=off
+DJANGO_ALLOWED_HOSTS= # mywebsite.com,another.com
+DJANGO_SETTINGS_MODULE=keraban.settings.production
+DJANGO_SECRET_KEY=""
+#DATABASE_URL= "" #"postgres://<user>:<pass>@localhost/<db>"
+#AWS_STORAGE_BUCKET_NAME="" #"mywebsitebucket"
+#AWS_ACCESS_KEY_ID= "" #"AAAAAAAAAAAAAAAAA"
+#AWS_SECRET_ACCESS_KEY= "" #"abcdefghijklmnopqrstuvwxyz"
