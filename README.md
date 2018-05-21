@@ -4,6 +4,11 @@ An inflexible, opinionated CMS based on Wagtail.
 Design a corporate website and give your client an user to
 keep the content they desire up to date.
 
+See it live! http://keraban.marcanuy.com/
+
+The Keraban website is an example of what a typical site looks like,
+the site itself its made with it.
+
 <!-- markdown-toc start - Don't edit this section. Run M-x markdown-toc-refresh-toc -->
 **Table of Contents**
 
@@ -194,7 +199,7 @@ button **Add Social Profiles**.
 
 # Credits
 
-- Powered by <wagtail.io>
+- Powered by https://wagtail.io
 - Inspired by the amazing Wagtail Bakery Demo
   <https://github.com/wagtail/bakerydemo/>
 - Galleries layout based on <https://tutorialzine.com/2018/03/3-amazing-bootstrap-4-gallery-templates>
