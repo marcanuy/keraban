@@ -21,6 +21,8 @@ jmespath==0.9.3
 libsass==0.14.5
 Pillow==5.1.0
 pycparser==2.18
+pydotplus==2.0.2
+pyparsing==2.2.0
 python-dateutil==2.7.3
 pytz==2018.4
 requests==2.18.4

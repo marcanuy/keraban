@@ -159,6 +159,9 @@ Business info.
 In **Admin** go to **Business Misc / Social Networks** and locate the
 button **Add Social Profiles**.
 
+# Models
+
+![models](docs/keraban_models.png?raw=true)
 
 # To do
 
