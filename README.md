@@ -76,7 +76,7 @@ This structure is most seen in websites for:
 - SASS with Bootstrap variables available
 - Contact form with <https://formspree.io/> (doesn't need email server
   configuration)
-- Google Maps in Contact page
+- Google Maps in Location page
   - <https://developers.google.com/maps/documentation/embed/guide>
   
 # Notes
