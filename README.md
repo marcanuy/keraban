@@ -80,7 +80,7 @@ This structure is most seen in websites for:
 	- locally with `runserver` and
 	- in production
 - environment variables: **django-dotenv**
-- media: TODO implement django-storages
+- media: **django-storages**
 
 # Installation
 
