@@ -42,7 +42,7 @@ developer users**.
   - *Semantic web*: Schema.org meta tags
   - Optimized for Search Engines (SEO, Google's richsnippets)
 - Fully responsive
-- Add and remove pages from backend
+- Add / Remove / Edit pages from Backend by end users
 
 # Explanation
 
