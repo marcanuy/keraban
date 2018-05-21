@@ -116,13 +116,26 @@ Super admin credentials:
 
 # Deploy
 
-Adjust after deployment:
+Adjust server after getting the files on the server:
 
-- Use `settings/production.py`
-- Set environment variables:
-  - ALLOWED_HOSTS (DJANGO_ALLOWED_HOSTS)
-  - customize `/_env.skeleton` and copy it to `/.env` 
-	- <https://github.com/jpadilla/django-dotenv>
+1. Copy `/_env.skeleton` to `/.env`
+2. Customize `/.env` with your environment variables values
+   - `.env` is processed by <https://github.com/jpadilla/django-dotenv>
+   - Choose to use `keraban.settings.production` as the `DJANGO_SETTINGS_MODULE`
+   - Adjust ALLOWED_HOSTS by setting `DJANGO_ALLOWED_HOSTS`
+   - Set up Amazon S3: 
+	 - Create an user with programmatic access
+		 - Create group for that user with **AmazonS3FullAccess** as the
+		 attached policy
+		 - 	generate a key with IAM
+               <https://console.aws.amazon.com/iam/home>)
+	 - Then you can fill the following keys for handling media
+		 - AWS_ACCESS_KEY_ID
+		 - AWS_SECRET_ACCESS_KEY
+		 - AWS_REGION
+		 - AWS_STORAGE_BUCKET_NAME (will be created if not exists)
+
+
 # How to
 
 ## Add a Page to main menu
