@@ -178,4 +178,4 @@ WAGTAIL_SITE_NAME = "keraban"
 BASE_URL = 'http://example.com'
 
 # Google maps for Location Pages
-GOOGLE_MAP_API_KEY = ''
+GOOGLE_MAP_API_KEY = os.getenv('GOOGLE_MAP_API_KEY', '')

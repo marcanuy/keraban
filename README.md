@@ -76,7 +76,9 @@ This structure is most seen in websites for:
 - SASS with Bootstrap variables available
 - Contact form with <https://formspree.io/> (doesn't need email server
   configuration)
-
+- Google Maps in Contact page
+  - <https://developers.google.com/maps/documentation/embed/guide>
+  
 # Notes
 
 - static files: **whitenoise**
@@ -137,7 +139,10 @@ Adjust server after getting the files on the server:
 		 - AWS_SECRET_ACCESS_KEY
 		 - AWS_REGION
 		 - AWS_STORAGE_BUCKET_NAME (will be created if not exists)
-
+   - Get Google maps api key
+     <https://developers.google.com/maps/documentation/embed/get-api-key>
+	 to fill GOOGLE_MAP_API_KEY and restrict its usage accepting
+     requests from your website at <https://console.developers.google.com/apis/credentials>
 
 # How to
 
@@ -171,7 +176,6 @@ button **Add Social Profiles**.
 - change featurettes to a flexible streamfield of alternating pages
 - add boostrap form classes to contact form template
 - make carousel on homepage hero items
-- add google maps api key
 - add business opening hours snippet
 - load bootstrap from nodejs or django/wagtail package
 - add schema
