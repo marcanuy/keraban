@@ -16,14 +16,6 @@
 
 {% block bodycontent %}
 
-<div class="container">
-    <div class="row">
-	<div class="col">
-	    <p>{{ page.body|safe }}</p>
-	</div>
-    </div>
-</div>
-
 {% if page.galery_type == "GRID" %}
 {% gallery_grid page.collection %}
 {% elif page.galery_type == "CARD" %}
