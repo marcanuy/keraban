@@ -253,6 +253,16 @@ class HomePage(Page):
         verbose_name='Featured features page'
     )
 
+    featured_location = models.ForeignKey(
+        'wagtailcore.Page',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text='Location section.',
+        verbose_name='Featured location page at homepage'
+    )
+
     featured_gallery = models.ForeignKey(
         'wagtailcore.Page',
         null=True,
@@ -283,6 +293,7 @@ class HomePage(Page):
                 ]),
             PageChooserPanel('featured_features'),
             PageChooserPanel('featured_gallery'),
+            PageChooserPanel('featured_location'),
         ], heading="Featured homepage sections", classname="collapsible")
     ]
 

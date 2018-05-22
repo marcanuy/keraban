@@ -42,6 +42,30 @@ body {
   margin-left: .75rem;
 }
 
+.location-address-out-map {
+
+    margin-bottom: 2rem;
+
+    @include media-breakpoint-up(lg) {
+	display: none;
+    }
+ 
+}
+
+.location-address {
+  background-color: rgba(233,228,221,1);
+  padding: 10px 30px;
+  margin-bottom: -200px;
+  position: relative;
+  z-index: 1;
+
+  @include media-breakpoint-down(lg) {
+      display: none;
+  }
+  
+}
+
+
 footer {
     margin-top: 10em;
 }
@@ -591,13 +615,6 @@ footer {
 // }
 // .map-container {
 //   height: 550px;
-// }
-// .location-address {
-//   background-color: rgba(233,228,221,1);
-//   padding: 10px 30px;
-//   margin-bottom: -200px;
-//   position: relative;
-//   z-index: 1;
 // }
 
 // /* Blog list view */

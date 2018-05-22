@@ -1,6 +1,4 @@
-from django.conf import settings
-
-from home.models import StandardPage
+from home.models import StandardPage, Businesses
 
 class LocationPage(StandardPage):
     """
@@ -13,5 +11,6 @@ class LocationPage(StandardPage):
     # the latitude, longitude and map API key to render the map
     def get_context(self, request):
         context = super(LocationPage, self).get_context(request)
-        context['google_map_api_key'] = settings.GOOGLE_MAP_API_KEY
+        business = Businesses.objects.first()
+        context['address'] = business.address
         return context

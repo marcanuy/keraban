@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load wagtailimages_tags wagtailcore_tags gallery_tags static %}
+{% load wagtailimages_tags wagtailcore_tags gallery_tags static location_tags %}
 
 {% block body_class %}template-homepage{% endblock %}
 
@@ -162,8 +162,30 @@
 	</div>
     </div>
     {% gallery_compact page.featured_gallery.specific.collection %}
-
     {% endif %}
+
+    <hr class="featurette-divider">
+
+    {% if page.featured_location %}
+    {% with location=page.featured_location.specific %}
+    <div class="container location">
+	<div class="row no-gutters">
+	    <div class="col">
+		<h2 class="featurette-heading text-center mb-3 pb-3">{{ location.title }}</h2>
+	    </div>
+	</div>
+
+	{% show_map %}
+
+	<div class="row mt-4">
+	    <div class="col d-flex justify-content-center">
+		<a href="{% pageurl page.featured_location.specific %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">View Location</a>
+	    </div>
+	</div>
+    </div>
+    {% endwith %}
+    {% endif %}
+
 
 </div> <!-- homepage -->
 {% endblock %}
