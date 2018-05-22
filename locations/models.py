@@ -1,4 +1,4 @@
-from home.models import StandardPage, Businesses
+from home.models import StandardPage, Organization
 
 class LocationPage(StandardPage):
     """
@@ -11,6 +11,6 @@ class LocationPage(StandardPage):
     # the latitude, longitude and map API key to render the map
     def get_context(self, request):
         context = super(LocationPage, self).get_context(request)
-        business = Businesses.objects.first()
+        business = Organization.objects.first()
         context['address'] = business.address
         return context

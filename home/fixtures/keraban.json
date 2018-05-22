@@ -18,7 +18,7 @@
   }
 },
 {
-  "model": "home.businesses",
+  "model": "home.organization",
   "pk": 1,
   "fields": {
     "name": "Keraban CMS",

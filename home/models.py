@@ -40,7 +40,7 @@ class SocialProfiles(models.Model):
         verbose_name_plural = 'Social networks'
 
 @register_snippet
-class Businesses(models.Model):
+class Organization(models.Model):
     """
     This provides editable text for the site business info. Uses the decorator
     `register_snippet` to allow it to be accessible via the admin. It is made
@@ -134,7 +134,7 @@ class Businesses(models.Model):
         return "Business text"
 
     class Meta:
-        verbose_name_plural = 'Businesses'
+        verbose_name_plural = 'Organization'
 
 
 class StandardPage(Page):

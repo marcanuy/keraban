@@ -175,7 +175,7 @@ and **Add Child Page**.
 
 ### Change business data
 
-In **Admin** go to **Business Misc / Businesses** and **Edit**
+In **Admin** go to **Business Misc / Organization** and **Edit**
 Business info.
 
 ### Add business social network

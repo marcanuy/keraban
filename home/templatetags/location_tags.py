@@ -3,13 +3,13 @@ from django.conf import settings
 
 from wagtail.images.models import Image
 
-from home.models import Businesses
+from home.models import Organization
 
 register = template.Library()
 
 @register.inclusion_tag('tags/map.html', takes_context=True)
 def show_map(context):
-    business = Businesses.objects.first()
+    business = Organization.objects.first()
     pos = business.geo_coordinates.split(',')
 
     return {
