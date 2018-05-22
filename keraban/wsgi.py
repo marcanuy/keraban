@@ -14,7 +14,9 @@ from django.core.wsgi import get_wsgi_application
 
 # load environment settings from file if there is a file `.env` at root of project
 # https://github.com/jpadilla/django-dotenv
-dotenv.read_dotenv(os.path.join(os.path.dirname(os.path.dirname(__file__)), '.env'))
+env_file = os.path.join(os.path.dirname(os.path.dirname(__file__)), '.env')
+if os.path.isfile(env_file):
+    dotenv.read_dotenv(env_file)
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "keraban.settings.dev")
 
