@@ -59,6 +59,8 @@ INSTALLED_APPS = [
 
 
     'django_extensions',
+    'analytical', # https://django-analytical.readthedocs.io/en/latest/install.html
+
 ]
 
 MIDDLEWARE = [

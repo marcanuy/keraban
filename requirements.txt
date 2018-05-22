@@ -6,6 +6,7 @@ certifi==2018.4.16
 cffi==1.11.5
 chardet==3.0.4
 Django==2.0.5
+django-analytical==2.4.0
 django-dotenv==1.4.2
 django-extensions==2.0.7
 django-modelcluster==4.1

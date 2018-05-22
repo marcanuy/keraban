@@ -31,3 +31,6 @@ if 'AWS_STORAGE_BUCKET_NAME' in os.environ:
 
     DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
     #STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+# https://django-analytical.readthedocs.io/
+GOOGLE_ANALYTICS_PROPERTY_ID = 'UA-64047109-3'

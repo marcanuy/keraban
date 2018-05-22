@@ -91,6 +91,7 @@ This structure is most seen in websites for:
 	- in production
 - environment variables: **django-dotenv**
 - media: **django-storages**
+- google analytics: **django-analytical**
 
 # Installation
 

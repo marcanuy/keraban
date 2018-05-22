@@ -1,16 +1,20 @@
-{% load static wagtailuserbar navigation_tags %}
+{% load static wagtailuserbar navigation_tags analytical %}
+
+
 
 <html>
     <head>
+	{% analytical_head_top %}
 	{% include "includes/head.html" %}
 
 	{% block head-extra %}
 	{% endblock head-extra %}
-
+        {% analytical_head_bottom %}
     </head>
 
     <body class="{% block body_class %}{% endblock %}">
 	{% wagtailuserbar %}
+        {% analytical_body_top %}
 
 	<header>
 	    {% include "includes/navigation.html" %}
@@ -34,5 +38,7 @@
 	{% block extra_js %}
 	{# Override this in templates to add extra javascript #}
 	{% endblock %}
+        {% analytical_body_bottom %}
+
     </body>
 </html>
