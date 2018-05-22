@@ -9,6 +9,7 @@ Django==2.0.5
 django-analytical==2.4.0
 django-dotenv==1.4.2
 django-extensions==2.0.7
+django-meta==1.4.1
 django-modelcluster==4.1
 django-storages==1.6.6
 django-taggit==0.22.2

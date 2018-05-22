@@ -22,7 +22,10 @@ from wagtail.snippets.models import register_snippet
 
 from modelcluster.fields import ParentalManyToManyField
 
+from meta.models import ModelMeta
+
 from home.choices import CONTACT_TYPES_CHOICES
+
 
 @register_snippet
 class SocialProfiles(models.Model):
@@ -202,7 +205,7 @@ class Organization(models.Model):
         verbose_name_plural = 'Organization'
 
 
-class StandardPage(Page):
+class StandardPage(ModelMeta, Page):
     """
     A generic content page. All other pages inherits extend this class.
     """
@@ -238,7 +241,31 @@ class StandardPage(Page):
         StreamFieldPanel('body'),
     ]
 
-class HomePage(Page):
+
+    # https://django-meta.readthedocs.io/en/latest/models.html
+    _metadata = {
+        'title': 'title',
+        'description': 'introduction',
+        'image': 'get_meta_image',
+        'use_og': 'true',
+        'use_twitter': 'true',
+        'use_facebook': 'true',
+        'use_googleplus': 'true',
+        
+    }
+
+    # https://django-meta.readthedocs.io/en/latest/models.html
+    def get_meta_image(self):
+        if self.image:
+            return self.image.get_rendition(filter="width-1000").url
+
+    def get_context(self, request):
+        context = super(StandardPage, self).get_context(request)
+        # add metadata to every standard page
+        context['meta'] = self.as_meta(request)
+        return context
+
+class HomePage(ModelMeta, Page):
     """
     The Home Page.
 
@@ -364,3 +391,26 @@ class HomePage(Page):
 
     def __str__(self):
         return self.title
+
+    # https://django-meta.readthedocs.io/en/latest/models.html
+    _metadata = {
+        'title': 'hero_text',
+        'description': 'search_description',
+        'image': 'get_meta_image',
+        'use_og': 'true',
+        'use_twitter': 'true',
+        'use_facebook': 'true',
+        'use_googleplus': 'true',
+        
+    }
+
+    # https://django-meta.readthedocs.io/en/latest/models.html
+    def get_meta_image(self):
+        if self.image:
+            return self.image.get_rendition(filter="width-1000").url
+
+    def get_context(self, request):
+        context = super(HomePage, self).get_context(request)
+        # add metadata to every standard page
+        context['meta'] = self.as_meta(request)
+        return context

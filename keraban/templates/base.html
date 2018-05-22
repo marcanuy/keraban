@@ -1,9 +1,9 @@
-{% load static wagtailuserbar navigation_tags analytical %}
+{% load static wagtailuserbar navigation_tags analytical meta %}
 
 
 
 <html>
-    <head>
+    <head {% meta_namespaces %}>
 	{% analytical_head_top %}
 	{% include "includes/head.html" %}
 

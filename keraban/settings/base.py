@@ -60,7 +60,8 @@ INSTALLED_APPS = [
 
 
     'django_extensions',
-    'analytical', # https://django-analytical.readthedocs.io/en/latest/install.html
+    'analytical', # https://django-analytical.readthedocs.io/
+    'meta', # https://django-meta.readthedocs.io/
 
 ]
 
@@ -182,3 +183,6 @@ BASE_URL = 'http://example.com'
 
 # Google maps for Location Pages
 GOOGLE_MAP_API_KEY = os.getenv('GOOGLE_MAP_API_KEY', '')
+
+META_SITE_PROTOCOL="http"
+META_SITE_DOMAIN="keraban.marcanuy.com"
