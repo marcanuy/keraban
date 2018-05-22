@@ -122,6 +122,17 @@ class Organization(models.Model):
                             blank=True,
                             help_text="""The name of your business that will appear on Google.""")
 
+    logo = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text="Image Google Search uses for your organization's logo in Search results and in the Knowledge Graph. Size: 112x112px at minimum. Must be in .jpg, .png, or. gif format"
+    )
+
+
+
     email = models.CharField("Business email address",
                             max_length=100,
                             null=True,
@@ -164,6 +175,7 @@ class Organization(models.Model):
 
     panels = [
         FieldPanel('name'),
+        ImageChooserPanel('logo'),
         FieldPanel('email'),
         FieldPanel('address'),
         FieldPanel('hours'),
