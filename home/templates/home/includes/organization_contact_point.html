@@ -1,0 +1,7 @@
+{% if contact.telephone %}<meta itemprop="telephone" content="{{contact.telephone}}" />{% endif %}
+{% if contact.contact_type %}<meta itemprop="contactType" content="{{contact.get_contact_type_display}}" />{% endif %}
+{% if contact.area_served %}<meta itemprop="areaServed" content="{{contact.area_served}}" />{% endif %}
+{% if contact.available_language %}<meta itemprop="availableLanguage" content="{{contact.get_available_language_as_list|safe}}" />{% endif %}
+
+
+

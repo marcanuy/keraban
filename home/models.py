@@ -1,4 +1,7 @@
+from django import forms
 from django.db import models
+
+from collections import defaultdict
 
 from wagtail.admin.edit_handlers import (
     FieldPanel,
@@ -17,6 +20,9 @@ from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.search import index
 from wagtail.snippets.models import register_snippet
 
+from modelcluster.fields import ParentalManyToManyField
+
+from home.choices import CONTACT_TYPES_CHOICES
 
 @register_snippet
 class SocialProfiles(models.Model):
@@ -38,6 +44,49 @@ class SocialProfiles(models.Model):
 
     class Meta:
         verbose_name_plural = 'Social networks'
+
+@register_snippet
+class ContactNumbers(models.Model):
+    """
+    Implementation of Schema.org's ContactPoint main attributes
+    http://schema.org/ContactPoint
+    """
+    telephone = models.CharField(max_length=20, help_text="Telephone number. Ex.: +1-877-296-1018")
+    contact_type = models.CharField(
+        max_length=2,
+        choices=CONTACT_TYPES_CHOICES,
+        default='GRID'
+    )
+    area_served = models.CharField(
+        max_length=2,
+        help_text='The geographical region served by the number, specified as a AdministrativeArea. Countries may be specified concisely using just their standard ISO-3166 two-letter code, as in the examples below. If omitted, the number is assumed to be global. Examples: "US", "GB", ["US","CA","MX"]',
+        null=True,
+        blank=True)
+    available_language = models.CharField(
+        max_length=20,
+        help_text='Details about the language spoken. Languages may be specified by their common English name. If omitted, the language defaults to English. Examples: "English", "Spanish", ["French","English"]',
+        null=True,
+        blank=True)
+    panels = [
+        FieldPanel('telephone'),
+        FieldPanel('contact_type'),
+        FieldPanel('area_served'),
+        FieldPanel('available_language'),
+    ]
+
+    # https://docs.djangoproject.com/en/2.0/ref/models/instances/#django.db.models.Model.get_FOO_display
+    # def get_contact_type_display()
+
+    def get_available_language_as_list(self):
+        al = self.available_language
+        return al.split(',')
+    
+    def __str__(self):
+        return self.telephone
+
+    class Meta:
+        verbose_name_plural = 'Contact Points'
+
 
 @register_snippet
 class Organization(models.Model):
@@ -110,6 +159,9 @@ class Organization(models.Model):
                                        blank=True,
                                        help_text=
                                        """Comma separated geo coordinates as <latitude,longitude>. Es: -34.8844053,-56.1609289""")
+
+    contact_points = models.ManyToManyField('ContactNumbers', blank=True)
+
     panels = [
         FieldPanel('name'),
         FieldPanel('email'),
@@ -119,6 +171,7 @@ class Organization(models.Model):
         FieldPanel('description'),
         FieldPanel('geo_coordinates'),
         ImageChooserPanel('image'),
+        FieldPanel('contact_points', widget=forms.CheckboxSelectMultiple)
     ]
 
     def address_as_list(self):

@@ -18,6 +18,26 @@
   }
 },
 {
+  "model": "home.contactnumbers",
+  "pk": 1,
+  "fields": {
+    "telephone": "+1-877-296-1018",
+    "contact_type": "CS",
+    "area_served": null,
+    "available_language": "english,spanish"
+  }
+},
+{
+  "model": "home.contactnumbers",
+  "pk": 2,
+  "fields": {
+    "telephone": "(5982)487 3636",
+    "contact_type": "TS",
+    "area_served": null,
+    "available_language": "spanish"
+  }
+},
+{
   "model": "home.organization",
   "pk": 1,
   "fields": {
@@ -28,7 +48,10 @@
     "phone": "123456789",
     "image": 1,
     "description": "An inflexible, opinionated Content Management System",
-    "geo_coordinates": "-34.8844053,-56.1609289"
+    "geo_coordinates": "-34.8844053,-56.1609289",
+    "contact_points": [
+      1
+    ]
   }
 },
 {

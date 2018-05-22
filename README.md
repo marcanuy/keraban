@@ -37,15 +37,16 @@ the site itself its made with it.
 
 # Goals
 
-Build and deploy websites that **can be easily maintained by non
+- Build and deploy websites that **can be easily maintained by non
 developer users**.
+- Implementation of web best practices with special focus on Google's
+  supported schema.org content types and [enhancements](https://developers.google.com/search/docs/guides/search-gallery#enhancements).
 
 ## Design Principles
 
 - Consistent look & feel through all web pages
-- Implementation of web best practices:
-  - *Semantic web*: Schema.org meta tags
-  - Optimized for Search Engines (SEO, Google's richsnippets)
+- *Semantic web*: Schema.org meta tags and html5
+- Optimized for Search Engines (SEO, Google's richsnippets)
 - Fully responsive
 - Add / Remove / Edit pages from Backend by end users
 
@@ -77,7 +78,19 @@ This structure is most seen in websites for:
 - SEO
   - Using Schema.org
   - Social Markup <https://developers.google.com/webmasters/social-markup>
-  - Knowledge Graph card with details about the business <https://developers.google.com/search/docs/data-types/local-business>
+  - Knowledge Graph card with details about the business
+    <https://developers.google.com/search/docs/data-types/local-business>
+  - Implementation of Google's advised [enhancements](https://developers.google.com/search/docs/guides/search-gallery#enhancements)
+	- **Corporate Contact** - Your corporate contact information
+      displayed in the Google Knowledge panel.
+	  ![panel](https://developers.google.com/search/docs/data-types/images/corporateContacts01.png)
+    - **Logo** - Your organization's logo in search results and Google Knowledge Graph.
+	  ![logo](https://developers.google.com/search/docs/data-types/images/logo01.png)
+    - **Social Profile** - Your social profile information displayed on Google Knowledge panels.
+	  ![social](https://developers.google.com/search/docs/data-types/images/social-profiles01.png)
+  - Local Business Content Type
+	- Business details displayed prominently in the Knowledge Graph card.
+      ![business](https://developers.google.com/search/docs/data-types/images/local-business02.png)
 - SASS with Bootstrap variables available
 - Contact form with <https://formspree.io/> (doesn't need email server
   configuration)
