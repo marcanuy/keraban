@@ -94,26 +94,36 @@ This structure is most seen in websites for:
 
 # Installation
 
-Create a virtual environment:
+1. Create a virtual environment:
 
-    mkvirtualenv --python=/usr/bin/python3.6 ~/.virtualenvs/keraban
-Or
+        mkvirtualenv --python=/usr/bin/python3.6 ~/.virtualenvs/keraban
 
-	python3.6 -m venv ~/.virtualenvs/keraban/
+  Or
+
+	    python3.6 -m venv ~/.virtualenvs/keraban/
 	
-Clone the repo:
+2. Clone the repo:
 
-	git clone git@github.com:marcanuy/keraban.git
+    	git clone git@github.com:marcanuy/keraban.git
 
-Use new site:
+3. Use new site:
 
-	cd keraban
-    echo `pwd` > ~/.virtualenvs/keraban/.project
-	workon keraban	
+    	cd keraban
+        echo `pwd` > ~/.virtualenvs/keraban/.project
+    	workon keraban	
+
+4. Generate site CSS
+
+    	make compile-sass
+	
+5. Load fixture
+
+        ./manage.py loaddata home/fixtures/keraban.json
+
 
 # Running locally
 
-./manage.py runserver
+    ./manage.py runserver
 
 ## Admin
 
