@@ -1,0 +1,716 @@
+<?xml version="1.0" encoding="utf-8"?>
+<django-objects version="1.0">
+  <object model="home.socialprofiles" pk="2">
+    <field name="name" type="CharField">Twitter</field>
+    <field name="url" type="CharField">https://twitter.com/marcanuy/</field>
+    <field name="icon" type="CharField">fa-twitter</field>
+  </object>
+  <object model="home.socialprofiles" pk="3">
+    <field name="name" type="CharField">Github</field>
+    <field name="url" type="CharField">https://github.com/marcanuy/keraban</field>
+    <field name="icon" type="CharField">fa-github</field>
+  </object>
+  <object model="home.contactnumbers" pk="1">
+    <field name="telephone" type="CharField">+1-877-296-1018</field>
+    <field name="contact_type" type="CharField">CS</field>
+    <field name="area_served" type="CharField"><None></None></field>
+    <field name="available_language" type="CharField">english,spanish</field>
+  </object>
+  <object model="home.contactnumbers" pk="2">
+    <field name="telephone" type="CharField">(5982)487 3636</field>
+    <field name="contact_type" type="CharField">TS</field>
+    <field name="area_served" type="CharField"><None></None></field>
+    <field name="available_language" type="CharField">spanish</field>
+  </object>
+  <object model="home.organization" pk="1">
+    <field name="name" type="CharField">Keraban CMS</field>
+    <field name="logo" rel="ManyToOneRel" to="wagtailimages.image">12</field>
+    <field name="email" type="CharField">me@marcanuy.com</field>
+    <field name="address" type="TextField">1901 Lemur Ave, Sunnyvale, CA, 94086, US</field>
+    <field name="hours" type="TextField"></field>
+    <field name="phone" type="TextField">123456789</field>
+    <field name="image" rel="ManyToOneRel" to="wagtailimages.image">1</field>
+    <field name="description" type="TextField">An inflexible, opinionated Content Management System</field>
+    <field name="geo_coordinates" type="TextField">-34.8844053,-56.1609289</field>
+    <field name="contact_points" rel="ManyToManyRel" to="home.contactnumbers"><object pk="1"></object></field>
+  </object>
+  <object model="wagtailcore.site" pk="2">
+    <field name="hostname" type="CharField">keraban.marcanuy.com</field>
+    <field name="port" type="IntegerField">80</field>
+    <field name="site_name" type="CharField">Keraban CMS</field>
+    <field name="root_page" rel="ManyToOneRel" to="wagtailcore.page">3</field>
+    <field name="is_default_site" type="BooleanField">True</field>
+  </object>
+  <object model="wagtailcore.collection" pk="1">
+    <field name="path" type="CharField">0001</field>
+    <field name="depth" type="PositiveIntegerField">1</field>
+    <field name="numchild" type="PositiveIntegerField">1</field>
+    <field name="name" type="CharField">Root</field>
+  </object>
+  <object model="wagtailcore.collection" pk="2">
+    <field name="path" type="CharField">00010001</field>
+    <field name="depth" type="PositiveIntegerField">2</field>
+    <field name="numchild" type="PositiveIntegerField">0</field>
+    <field name="name" type="CharField">Sample Images</field>
+  </object>
+  <object model="auth.group" pk="1">
+    <field name="name" type="CharField">Moderators</field>
+    <field name="permissions" rel="ManyToManyRel" to="auth.permission"><object><natural>access_admin</natural><natural>wagtailadmin</natural><natural>admin</natural></object><object><natural>add_document</natural><natural>wagtaildocs</natural><natural>document</natural></object><object><natural>change_document</natural><natural>wagtaildocs</natural><natural>document</natural></object><object><natural>delete_document</natural><natural>wagtaildocs</natural><natural>document</natural></object><object><natural>add_image</natural><natural>wagtailimages</natural><natural>image</natural></object><object><natural>change_image</natural><natural>wagtailimages</natural><natural>image</natural></object><object><natural>delete_image</natural><natural>wagtailimages</natural><natural>image</natural></object></field>
+  </object>
+  <object model="auth.group" pk="2">
+    <field name="name" type="CharField">Editors</field>
+    <field name="permissions" rel="ManyToManyRel" to="auth.permission"><object><natural>access_admin</natural><natural>wagtailadmin</natural><natural>admin</natural></object><object><natural>add_document</natural><natural>wagtaildocs</natural><natural>document</natural></object><object><natural>change_document</natural><natural>wagtaildocs</natural><natural>document</natural></object><object><natural>delete_document</natural><natural>wagtaildocs</natural><natural>document</natural></object><object><natural>add_image</natural><natural>wagtailimages</natural><natural>image</natural></object><object><natural>change_image</natural><natural>wagtailimages</natural><natural>image</natural></object><object><natural>delete_image</natural><natural>wagtailimages</natural><natural>image</natural></object></field>
+  </object>
+  <object model="auth.user" pk="1">
+    <field name="password" type="CharField">pbkdf2_sha256$100000$4GJ2LG7SpbjX$cWz2MHL5ubXT4mZreDGUH6fkFXddwZoLq1CoPWDeSys=</field>
+    <field name="last_login" type="DateTimeField">2018-05-19T21:47:38.465969+00:00</field>
+    <field name="is_superuser" type="BooleanField">True</field>
+    <field name="username" type="CharField">admin</field>
+    <field name="first_name" type="CharField"></field>
+    <field name="last_name" type="CharField"></field>
+    <field name="email" type="CharField">admin@example.com</field>
+    <field name="is_staff" type="BooleanField">True</field>
+    <field name="is_active" type="BooleanField">True</field>
+    <field name="date_joined" type="DateTimeField">2018-05-14T22:17:17.353055+00:00</field>
+    <field name="groups" rel="ManyToManyRel" to="auth.group"></field>
+    <field name="user_permissions" rel="ManyToManyRel" to="auth.permission"></field>
+  </object>
+  <object model="wagtailcore.grouppagepermission" pk="1">
+    <field name="group" rel="ManyToOneRel" to="auth.group"><natural>Moderators</natural></field>
+    <field name="page" rel="ManyToOneRel" to="wagtailcore.page">1</field>
+    <field name="permission_type" type="CharField">add</field>
+  </object>
+  <object model="wagtailcore.grouppagepermission" pk="2">
+    <field name="group" rel="ManyToOneRel" to="auth.group"><natural>Moderators</natural></field>
+    <field name="page" rel="ManyToOneRel" to="wagtailcore.page">1</field>
+    <field name="permission_type" type="CharField">edit</field>
+  </object>
+  <object model="wagtailcore.grouppagepermission" pk="3">
+    <field name="group" rel="ManyToOneRel" to="auth.group"><natural>Moderators</natural></field>
+    <field name="page" rel="ManyToOneRel" to="wagtailcore.page">1</field>
+    <field name="permission_type" type="CharField">publish</field>
+  </object>
+  <object model="wagtailcore.grouppagepermission" pk="4">
+    <field name="group" rel="ManyToOneRel" to="auth.group"><natural>Editors</natural></field>
+    <field name="page" rel="ManyToOneRel" to="wagtailcore.page">1</field>
+    <field name="permission_type" type="CharField">add</field>
+  </object>
+  <object model="wagtailcore.grouppagepermission" pk="5">
+    <field name="group" rel="ManyToOneRel" to="auth.group"><natural>Editors</natural></field>
+    <field name="page" rel="ManyToOneRel" to="wagtailcore.page">1</field>
+    <field name="permission_type" type="CharField">edit</field>
+  </object>
+  <object model="wagtailcore.grouppagepermission" pk="6">
+    <field name="group" rel="ManyToOneRel" to="auth.group"><natural>Moderators</natural></field>
+    <field name="page" rel="ManyToOneRel" to="wagtailcore.page">1</field>
+    <field name="permission_type" type="CharField">lock</field>
+  </object>
+  <object model="wagtailcore.page" pk="1">
+    <field name="path" type="CharField">0001</field>
+    <field name="depth" type="PositiveIntegerField">1</field>
+    <field name="numchild" type="PositiveIntegerField">1</field>
+    <field name="title" type="CharField">Root</field>
+    <field name="draft_title" type="CharField">Root</field>
+    <field name="slug" type="SlugField">root</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype"><natural>wagtailcore</natural><natural>page</natural></field>
+    <field name="live" type="BooleanField">True</field>
+    <field name="has_unpublished_changes" type="BooleanField">False</field>
+    <field name="url_path" type="TextField">/</field>
+    <field name="owner" rel="ManyToOneRel" to="auth.user"><None></None></field>
+    <field name="seo_title" type="CharField"></field>
+    <field name="show_in_menus" type="BooleanField">False</field>
+    <field name="search_description" type="TextField"></field>
+    <field name="go_live_at" type="DateTimeField"><None></None></field>
+    <field name="expire_at" type="DateTimeField"><None></None></field>
+    <field name="expired" type="BooleanField">False</field>
+    <field name="locked" type="BooleanField">False</field>
+    <field name="first_published_at" type="DateTimeField"><None></None></field>
+    <field name="last_published_at" type="DateTimeField"><None></None></field>
+    <field name="latest_revision_created_at" type="DateTimeField"><None></None></field>
+  </object>
+  <object model="wagtailcore.page" pk="3">
+    <field name="path" type="CharField">00010001</field>
+    <field name="depth" type="PositiveIntegerField">2</field>
+    <field name="numchild" type="PositiveIntegerField">5</field>
+    <field name="title" type="CharField">Keraban CMS</field>
+    <field name="draft_title" type="CharField">Keraban CMS</field>
+    <field name="slug" type="SlugField">home</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype"><natural>home</natural><natural>homepage</natural></field>
+    <field name="live" type="BooleanField">True</field>
+    <field name="has_unpublished_changes" type="BooleanField">False</field>
+    <field name="url_path" type="TextField">/home/</field>
+    <field name="owner" rel="ManyToOneRel" to="auth.user"><None></None></field>
+    <field name="seo_title" type="CharField">Keraban CMS</field>
+    <field name="show_in_menus" type="BooleanField">False</field>
+    <field name="search_description" type="TextField">CMS built on Wagtail. Download, customize content and deploy an amazing dynamic corporate website with users.</field>
+    <field name="go_live_at" type="DateTimeField"><None></None></field>
+    <field name="expire_at" type="DateTimeField"><None></None></field>
+    <field name="expired" type="BooleanField">False</field>
+    <field name="locked" type="BooleanField">False</field>
+    <field name="first_published_at" type="DateTimeField">2018-05-16T15:07:00.634174+00:00</field>
+    <field name="last_published_at" type="DateTimeField">2018-05-22T22:12:41.780988+00:00</field>
+    <field name="latest_revision_created_at" type="DateTimeField">2018-05-22T22:12:41.569758+00:00</field>
+  </object>
+  <object model="wagtailcore.page" pk="4">
+    <field name="path" type="CharField">000100010001</field>
+    <field name="depth" type="PositiveIntegerField">3</field>
+    <field name="numchild" type="PositiveIntegerField">6</field>
+    <field name="title" type="CharField">Features</field>
+    <field name="draft_title" type="CharField">Features</field>
+    <field name="slug" type="SlugField">features</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype"><natural>features</natural><natural>featuresindexpage</natural></field>
+    <field name="live" type="BooleanField">True</field>
+    <field name="has_unpublished_changes" type="BooleanField">False</field>
+    <field name="url_path" type="TextField">/home/features/</field>
+    <field name="owner" rel="ManyToOneRel" to="auth.user"><natural>admin</natural></field>
+    <field name="seo_title" type="CharField"></field>
+    <field name="show_in_menus" type="BooleanField">True</field>
+    <field name="search_description" type="TextField">Keraban CMS list of features and their descriptions.</field>
+    <field name="go_live_at" type="DateTimeField"><None></None></field>
+    <field name="expire_at" type="DateTimeField"><None></None></field>
+    <field name="expired" type="BooleanField">False</field>
+    <field name="locked" type="BooleanField">False</field>
+    <field name="first_published_at" type="DateTimeField">2018-05-17T13:22:19.288848+00:00</field>
+    <field name="last_published_at" type="DateTimeField">2018-05-22T20:44:34.382412+00:00</field>
+    <field name="latest_revision_created_at" type="DateTimeField">2018-05-22T20:44:34.223130+00:00</field>
+  </object>
+  <object model="wagtailcore.page" pk="5">
+    <field name="path" type="CharField">0001000100010001</field>
+    <field name="depth" type="PositiveIntegerField">4</field>
+    <field name="numchild" type="PositiveIntegerField">0</field>
+    <field name="title" type="CharField">Responsive design</field>
+    <field name="draft_title" type="CharField">Responsive design</field>
+    <field name="slug" type="SlugField">responsive-design</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype"><natural>features</natural><natural>featurespage</natural></field>
+    <field name="live" type="BooleanField">True</field>
+    <field name="has_unpublished_changes" type="BooleanField">False</field>
+    <field name="url_path" type="TextField">/home/features/responsive-design/</field>
+    <field name="owner" rel="ManyToOneRel" to="auth.user"><natural>admin</natural></field>
+    <field name="seo_title" type="CharField"></field>
+    <field name="show_in_menus" type="BooleanField">False</field>
+    <field name="search_description" type="TextField"></field>
+    <field name="go_live_at" type="DateTimeField"><None></None></field>
+    <field name="expire_at" type="DateTimeField"><None></None></field>
+    <field name="expired" type="BooleanField">False</field>
+    <field name="locked" type="BooleanField">False</field>
+    <field name="first_published_at" type="DateTimeField">2018-05-17T14:28:11.136633+00:00</field>
+    <field name="last_published_at" type="DateTimeField">2018-05-17T14:41:46.625323+00:00</field>
+    <field name="latest_revision_created_at" type="DateTimeField">2018-05-17T14:41:46.414377+00:00</field>
+  </object>
+  <object model="wagtailcore.page" pk="6">
+    <field name="path" type="CharField">000100010002</field>
+    <field name="depth" type="PositiveIntegerField">3</field>
+    <field name="numchild" type="PositiveIntegerField">0</field>
+    <field name="title" type="CharField">Location</field>
+    <field name="draft_title" type="CharField">Location</field>
+    <field name="slug" type="SlugField">location</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype"><natural>locations</natural><natural>locationpage</natural></field>
+    <field name="live" type="BooleanField">True</field>
+    <field name="has_unpublished_changes" type="BooleanField">False</field>
+    <field name="url_path" type="TextField">/home/location/</field>
+    <field name="owner" rel="ManyToOneRel" to="auth.user"><natural>admin</natural></field>
+    <field name="seo_title" type="CharField"></field>
+    <field name="show_in_menus" type="BooleanField">True</field>
+    <field name="search_description" type="TextField"></field>
+    <field name="go_live_at" type="DateTimeField"><None></None></field>
+    <field name="expire_at" type="DateTimeField"><None></None></field>
+    <field name="expired" type="BooleanField">False</field>
+    <field name="locked" type="BooleanField">False</field>
+    <field name="first_published_at" type="DateTimeField">2018-05-17T16:33:24.151832+00:00</field>
+    <field name="last_published_at" type="DateTimeField">2018-05-21T21:26:24.929645+00:00</field>
+    <field name="latest_revision_created_at" type="DateTimeField">2018-05-21T21:26:24.796888+00:00</field>
+  </object>
+  <object model="wagtailcore.page" pk="7">
+    <field name="path" type="CharField">000100010003</field>
+    <field name="depth" type="PositiveIntegerField">3</field>
+    <field name="numchild" type="PositiveIntegerField">1</field>
+    <field name="title" type="CharField">Contact</field>
+    <field name="draft_title" type="CharField">Contact</field>
+    <field name="slug" type="SlugField">contact</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype"><natural>contact</natural><natural>contactpage</natural></field>
+    <field name="live" type="BooleanField">True</field>
+    <field name="has_unpublished_changes" type="BooleanField">False</field>
+    <field name="url_path" type="TextField">/home/contact/</field>
+    <field name="owner" rel="ManyToOneRel" to="auth.user"><natural>admin</natural></field>
+    <field name="seo_title" type="CharField"></field>
+    <field name="show_in_menus" type="BooleanField">True</field>
+    <field name="search_description" type="TextField">Contact form</field>
+    <field name="go_live_at" type="DateTimeField"><None></None></field>
+    <field name="expire_at" type="DateTimeField"><None></None></field>
+    <field name="expired" type="BooleanField">False</field>
+    <field name="locked" type="BooleanField">False</field>
+    <field name="first_published_at" type="DateTimeField">2018-05-17T19:16:22.655968+00:00</field>
+    <field name="last_published_at" type="DateTimeField">2018-05-22T20:45:29.847296+00:00</field>
+    <field name="latest_revision_created_at" type="DateTimeField">2018-05-22T20:45:29.705334+00:00</field>
+  </object>
+  <object model="wagtailcore.page" pk="8">
+    <field name="path" type="CharField">0001000100030001</field>
+    <field name="depth" type="PositiveIntegerField">4</field>
+    <field name="numchild" type="PositiveIntegerField">0</field>
+    <field name="title" type="CharField">Message received</field>
+    <field name="draft_title" type="CharField">Message received</field>
+    <field name="slug" type="SlugField">message-received</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype"><natural>home</natural><natural>standardpage</natural></field>
+    <field name="live" type="BooleanField">True</field>
+    <field name="has_unpublished_changes" type="BooleanField">False</field>
+    <field name="url_path" type="TextField">/home/contact/message-received/</field>
+    <field name="owner" rel="ManyToOneRel" to="auth.user"><natural>admin</natural></field>
+    <field name="seo_title" type="CharField"></field>
+    <field name="show_in_menus" type="BooleanField">False</field>
+    <field name="search_description" type="TextField"></field>
+    <field name="go_live_at" type="DateTimeField"><None></None></field>
+    <field name="expire_at" type="DateTimeField"><None></None></field>
+    <field name="expired" type="BooleanField">False</field>
+    <field name="locked" type="BooleanField">False</field>
+    <field name="first_published_at" type="DateTimeField">2018-05-17T19:18:15.912603+00:00</field>
+    <field name="last_published_at" type="DateTimeField">2018-05-17T19:18:15.912603+00:00</field>
+    <field name="latest_revision_created_at" type="DateTimeField">2018-05-17T19:18:15.801533+00:00</field>
+  </object>
+  <object model="wagtailcore.page" pk="9">
+    <field name="path" type="CharField">000100010004</field>
+    <field name="depth" type="PositiveIntegerField">3</field>
+    <field name="numchild" type="PositiveIntegerField">0</field>
+    <field name="title" type="CharField">Gallery</field>
+    <field name="draft_title" type="CharField">Gallery</field>
+    <field name="slug" type="SlugField">gallery</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype"><natural>gallery</natural><natural>gallerypage</natural></field>
+    <field name="live" type="BooleanField">True</field>
+    <field name="has_unpublished_changes" type="BooleanField">False</field>
+    <field name="url_path" type="TextField">/home/gallery/</field>
+    <field name="owner" rel="ManyToOneRel" to="auth.user"><natural>admin</natural></field>
+    <field name="seo_title" type="CharField"></field>
+    <field name="show_in_menus" type="BooleanField">True</field>
+    <field name="search_description" type="TextField">Gallery of websites done with Keraban CMS</field>
+    <field name="go_live_at" type="DateTimeField"><None></None></field>
+    <field name="expire_at" type="DateTimeField"><None></None></field>
+    <field name="expired" type="BooleanField">False</field>
+    <field name="locked" type="BooleanField">False</field>
+    <field name="first_published_at" type="DateTimeField">2018-05-18T20:39:57.569151+00:00</field>
+    <field name="last_published_at" type="DateTimeField">2018-05-22T20:46:10.725306+00:00</field>
+    <field name="latest_revision_created_at" type="DateTimeField">2018-05-22T20:46:10.571005+00:00</field>
+  </object>
+  <object model="wagtailcore.page" pk="10">
+    <field name="path" type="CharField">0001000100010002</field>
+    <field name="depth" type="PositiveIntegerField">4</field>
+    <field name="numchild" type="PositiveIntegerField">0</field>
+    <field name="title" type="CharField">SEO</field>
+    <field name="draft_title" type="CharField">SEO</field>
+    <field name="slug" type="SlugField">seo</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype"><natural>features</natural><natural>featurespage</natural></field>
+    <field name="live" type="BooleanField">True</field>
+    <field name="has_unpublished_changes" type="BooleanField">False</field>
+    <field name="url_path" type="TextField">/home/features/seo/</field>
+    <field name="owner" rel="ManyToOneRel" to="auth.user"><natural>admin</natural></field>
+    <field name="seo_title" type="CharField"></field>
+    <field name="show_in_menus" type="BooleanField">False</field>
+    <field name="search_description" type="TextField"></field>
+    <field name="go_live_at" type="DateTimeField"><None></None></field>
+    <field name="expire_at" type="DateTimeField"><None></None></field>
+    <field name="expired" type="BooleanField">False</field>
+    <field name="locked" type="BooleanField">False</field>
+    <field name="first_published_at" type="DateTimeField">2018-05-19T14:20:12.574295+00:00</field>
+    <field name="last_published_at" type="DateTimeField">2018-05-19T14:20:12.574295+00:00</field>
+    <field name="latest_revision_created_at" type="DateTimeField">2018-05-19T14:20:12.441519+00:00</field>
+  </object>
+  <object model="wagtailcore.page" pk="11">
+    <field name="path" type="CharField">0001000100010003</field>
+    <field name="depth" type="PositiveIntegerField">4</field>
+    <field name="numchild" type="PositiveIntegerField">0</field>
+    <field name="title" type="CharField">Google</field>
+    <field name="draft_title" type="CharField">Google</field>
+    <field name="slug" type="SlugField">google</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype"><natural>features</natural><natural>featurespage</natural></field>
+    <field name="live" type="BooleanField">True</field>
+    <field name="has_unpublished_changes" type="BooleanField">False</field>
+    <field name="url_path" type="TextField">/home/features/google/</field>
+    <field name="owner" rel="ManyToOneRel" to="auth.user"><natural>admin</natural></field>
+    <field name="seo_title" type="CharField"></field>
+    <field name="show_in_menus" type="BooleanField">False</field>
+    <field name="search_description" type="TextField"></field>
+    <field name="go_live_at" type="DateTimeField"><None></None></field>
+    <field name="expire_at" type="DateTimeField"><None></None></field>
+    <field name="expired" type="BooleanField">False</field>
+    <field name="locked" type="BooleanField">False</field>
+    <field name="first_published_at" type="DateTimeField">2018-05-19T14:22:06.835326+00:00</field>
+    <field name="last_published_at" type="DateTimeField">2018-05-19T14:22:06.835326+00:00</field>
+    <field name="latest_revision_created_at" type="DateTimeField">2018-05-19T14:22:06.728542+00:00</field>
+  </object>
+  <object model="wagtailcore.page" pk="12">
+    <field name="path" type="CharField">0001000100010004</field>
+    <field name="depth" type="PositiveIntegerField">4</field>
+    <field name="numchild" type="PositiveIntegerField">0</field>
+    <field name="title" type="CharField">Contact form</field>
+    <field name="draft_title" type="CharField">Contact form</field>
+    <field name="slug" type="SlugField">contact-form</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype"><natural>features</natural><natural>featurespage</natural></field>
+    <field name="live" type="BooleanField">True</field>
+    <field name="has_unpublished_changes" type="BooleanField">False</field>
+    <field name="url_path" type="TextField">/home/features/contact-form/</field>
+    <field name="owner" rel="ManyToOneRel" to="auth.user"><natural>admin</natural></field>
+    <field name="seo_title" type="CharField"></field>
+    <field name="show_in_menus" type="BooleanField">False</field>
+    <field name="search_description" type="TextField"></field>
+    <field name="go_live_at" type="DateTimeField"><None></None></field>
+    <field name="expire_at" type="DateTimeField"><None></None></field>
+    <field name="expired" type="BooleanField">False</field>
+    <field name="locked" type="BooleanField">False</field>
+    <field name="first_published_at" type="DateTimeField">2018-05-19T14:23:47.661256+00:00</field>
+    <field name="last_published_at" type="DateTimeField">2018-05-19T14:23:47.661256+00:00</field>
+    <field name="latest_revision_created_at" type="DateTimeField">2018-05-19T14:23:47.494840+00:00</field>
+  </object>
+  <object model="wagtailcore.page" pk="13">
+    <field name="path" type="CharField">0001000100010005</field>
+    <field name="depth" type="PositiveIntegerField">4</field>
+    <field name="numchild" type="PositiveIntegerField">0</field>
+    <field name="title" type="CharField">Powered by Wagtail</field>
+    <field name="draft_title" type="CharField">Powered by Wagtail</field>
+    <field name="slug" type="SlugField">powered-wagtail</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype"><natural>features</natural><natural>featurespage</natural></field>
+    <field name="live" type="BooleanField">True</field>
+    <field name="has_unpublished_changes" type="BooleanField">False</field>
+    <field name="url_path" type="TextField">/home/features/powered-wagtail/</field>
+    <field name="owner" rel="ManyToOneRel" to="auth.user"><natural>admin</natural></field>
+    <field name="seo_title" type="CharField"></field>
+    <field name="show_in_menus" type="BooleanField">False</field>
+    <field name="search_description" type="TextField"></field>
+    <field name="go_live_at" type="DateTimeField"><None></None></field>
+    <field name="expire_at" type="DateTimeField"><None></None></field>
+    <field name="expired" type="BooleanField">False</field>
+    <field name="locked" type="BooleanField">False</field>
+    <field name="first_published_at" type="DateTimeField">2018-05-19T14:25:34.967775+00:00</field>
+    <field name="last_published_at" type="DateTimeField">2018-05-19T14:25:53.137434+00:00</field>
+    <field name="latest_revision_created_at" type="DateTimeField">2018-05-19T14:25:53.008894+00:00</field>
+  </object>
+  <object model="wagtailcore.page" pk="14">
+    <field name="path" type="CharField">0001000100010006</field>
+    <field name="depth" type="PositiveIntegerField">4</field>
+    <field name="numchild" type="PositiveIntegerField">0</field>
+    <field name="title" type="CharField">SASS</field>
+    <field name="draft_title" type="CharField">SASS</field>
+    <field name="slug" type="SlugField">sass</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype"><natural>features</natural><natural>featurespage</natural></field>
+    <field name="live" type="BooleanField">True</field>
+    <field name="has_unpublished_changes" type="BooleanField">False</field>
+    <field name="url_path" type="TextField">/home/features/sass/</field>
+    <field name="owner" rel="ManyToOneRel" to="auth.user"><natural>admin</natural></field>
+    <field name="seo_title" type="CharField"></field>
+    <field name="show_in_menus" type="BooleanField">False</field>
+    <field name="search_description" type="TextField"></field>
+    <field name="go_live_at" type="DateTimeField"><None></None></field>
+    <field name="expire_at" type="DateTimeField"><None></None></field>
+    <field name="expired" type="BooleanField">False</field>
+    <field name="locked" type="BooleanField">False</field>
+    <field name="first_published_at" type="DateTimeField">2018-05-19T14:27:36.019683+00:00</field>
+    <field name="last_published_at" type="DateTimeField">2018-05-19T14:27:36.019683+00:00</field>
+    <field name="latest_revision_created_at" type="DateTimeField">2018-05-19T14:27:35.905003+00:00</field>
+  </object>
+  <object model="wagtailcore.page" pk="15">
+    <field name="path" type="CharField">000100010005</field>
+    <field name="depth" type="PositiveIntegerField">3</field>
+    <field name="numchild" type="PositiveIntegerField">0</field>
+    <field name="title" type="CharField">About</field>
+    <field name="draft_title" type="CharField">About</field>
+    <field name="slug" type="SlugField">about</field>
+    <field name="content_type" rel="ManyToOneRel" to="contenttypes.contenttype"><natural>home</natural><natural>standardpage</natural></field>
+    <field name="live" type="BooleanField">True</field>
+    <field name="has_unpublished_changes" type="BooleanField">False</field>
+    <field name="url_path" type="TextField">/home/about/</field>
+    <field name="owner" rel="ManyToOneRel" to="auth.user"><natural>admin</natural></field>
+    <field name="seo_title" type="CharField"></field>
+    <field name="show_in_menus" type="BooleanField">True</field>
+    <field name="search_description" type="TextField">Location of the organization with a map.</field>
+    <field name="go_live_at" type="DateTimeField"><None></None></field>
+    <field name="expire_at" type="DateTimeField"><None></None></field>
+    <field name="expired" type="BooleanField">False</field>
+    <field name="locked" type="BooleanField">False</field>
+    <field name="first_published_at" type="DateTimeField">2018-05-19T14:30:16.289775+00:00</field>
+    <field name="last_published_at" type="DateTimeField">2018-05-22T20:49:51.384043+00:00</field>
+    <field name="latest_revision_created_at" type="DateTimeField">2018-05-22T20:49:51.170634+00:00</field>
+  </object>
+  <object model="wagtailimages.image" pk="1">
+    <field name="collection" rel="ManyToOneRel" to="wagtailcore.collection">1</field>
+    <field name="title" type="CharField">Landscape</field>
+    <field name="file" type="FileField">original_images/pocitos.jpg</field>
+    <field name="width" type="IntegerField">1280</field>
+    <field name="height" type="IntegerField">720</field>
+    <field name="created_at" type="DateTimeField">2018-05-16T15:06:30.230497+00:00</field>
+    <field name="uploaded_by_user" rel="ManyToOneRel" to="auth.user"><natural>admin</natural></field>
+    <field name="focal_point_x" type="PositiveIntegerField"><None></None></field>
+    <field name="focal_point_y" type="PositiveIntegerField"><None></None></field>
+    <field name="focal_point_width" type="PositiveIntegerField"><None></None></field>
+    <field name="focal_point_height" type="PositiveIntegerField"><None></None></field>
+    <field name="file_size" type="PositiveIntegerField"><None></None></field>
+  </object>
+  <object model="wagtailimages.image" pk="2">
+    <field name="collection" rel="ManyToOneRel" to="wagtailcore.collection">2</field>
+    <field name="title" type="CharField">Image 5</field>
+    <field name="file" type="FileField">original_images/image5.jpg</field>
+    <field name="width" type="IntegerField">800</field>
+    <field name="height" type="IntegerField">533</field>
+    <field name="created_at" type="DateTimeField">2018-05-18T21:06:58.741920+00:00</field>
+    <field name="uploaded_by_user" rel="ManyToOneRel" to="auth.user"><natural>admin</natural></field>
+    <field name="focal_point_x" type="PositiveIntegerField"><None></None></field>
+    <field name="focal_point_y" type="PositiveIntegerField"><None></None></field>
+    <field name="focal_point_width" type="PositiveIntegerField"><None></None></field>
+    <field name="focal_point_height" type="PositiveIntegerField"><None></None></field>
+    <field name="file_size" type="PositiveIntegerField">130599</field>
+  </object>
+  <object model="wagtailimages.image" pk="3">
+    <field name="collection" rel="ManyToOneRel" to="wagtailcore.collection">2</field>
+    <field name="title" type="CharField">Image 1</field>
+    <field name="file" type="FileField">original_images/image1.jpg</field>
+    <field name="width" type="IntegerField">800</field>
+    <field name="height" type="IntegerField">533</field>
+    <field name="created_at" type="DateTimeField">2018-05-18T21:06:59.208712+00:00</field>
+    <field name="uploaded_by_user" rel="ManyToOneRel" to="auth.user"><natural>admin</natural></field>
+    <field name="focal_point_x" type="PositiveIntegerField"><None></None></field>
+    <field name="focal_point_y" type="PositiveIntegerField"><None></None></field>
+    <field name="focal_point_width" type="PositiveIntegerField"><None></None></field>
+    <field name="focal_point_height" type="PositiveIntegerField"><None></None></field>
+    <field name="file_size" type="PositiveIntegerField">82971</field>
+  </object>
+  <object model="wagtailimages.image" pk="4">
+    <field name="collection" rel="ManyToOneRel" to="wagtailcore.collection">2</field>
+    <field name="title" type="CharField">Image 2</field>
+    <field name="file" type="FileField">original_images/image2.jpg</field>
+    <field name="width" type="IntegerField">800</field>
+    <field name="height" type="IntegerField">533</field>
+    <field name="created_at" type="DateTimeField">2018-05-18T21:06:59.546376+00:00</field>
+    <field name="uploaded_by_user" rel="ManyToOneRel" to="auth.user"><natural>admin</natural></field>
+    <field name="focal_point_x" type="PositiveIntegerField"><None></None></field>
+    <field name="focal_point_y" type="PositiveIntegerField"><None></None></field>
+    <field name="focal_point_width" type="PositiveIntegerField"><None></None></field>
+    <field name="focal_point_height" type="PositiveIntegerField"><None></None></field>
+    <field name="file_size" type="PositiveIntegerField">140891</field>
+  </object>
+  <object model="wagtailimages.image" pk="5">
+    <field name="collection" rel="ManyToOneRel" to="wagtailcore.collection">2</field>
+    <field name="title" type="CharField">Image 3</field>
+    <field name="file" type="FileField">original_images/image3.jpg</field>
+    <field name="width" type="IntegerField">800</field>
+    <field name="height" type="IntegerField">533</field>
+    <field name="created_at" type="DateTimeField">2018-05-18T21:06:59.893766+00:00</field>
+    <field name="uploaded_by_user" rel="ManyToOneRel" to="auth.user"><natural>admin</natural></field>
+    <field name="focal_point_x" type="PositiveIntegerField"><None></None></field>
+    <field name="focal_point_y" type="PositiveIntegerField"><None></None></field>
+    <field name="focal_point_width" type="PositiveIntegerField"><None></None></field>
+    <field name="focal_point_height" type="PositiveIntegerField"><None></None></field>
+    <field name="file_size" type="PositiveIntegerField">92421</field>
+  </object>
+  <object model="wagtailimages.image" pk="6">
+    <field name="collection" rel="ManyToOneRel" to="wagtailcore.collection">2</field>
+    <field name="title" type="CharField">Image 4</field>
+    <field name="file" type="FileField">original_images/image4.jpg</field>
+    <field name="width" type="IntegerField">800</field>
+    <field name="height" type="IntegerField">533</field>
+    <field name="created_at" type="DateTimeField">2018-05-18T21:07:00.180693+00:00</field>
+    <field name="uploaded_by_user" rel="ManyToOneRel" to="auth.user"><natural>admin</natural></field>
+    <field name="focal_point_x" type="PositiveIntegerField"><None></None></field>
+    <field name="focal_point_y" type="PositiveIntegerField"><None></None></field>
+    <field name="focal_point_width" type="PositiveIntegerField"><None></None></field>
+    <field name="focal_point_height" type="PositiveIntegerField"><None></None></field>
+    <field name="file_size" type="PositiveIntegerField">81364</field>
+  </object>
+  <object model="wagtailimages.image" pk="7">
+    <field name="collection" rel="ManyToOneRel" to="wagtailcore.collection">2</field>
+    <field name="title" type="CharField">Image 6</field>
+    <field name="file" type="FileField">original_images/image6.jpg</field>
+    <field name="width" type="IntegerField">800</field>
+    <field name="height" type="IntegerField">533</field>
+    <field name="created_at" type="DateTimeField">2018-05-18T21:07:00.799403+00:00</field>
+    <field name="uploaded_by_user" rel="ManyToOneRel" to="auth.user"><natural>admin</natural></field>
+    <field name="focal_point_x" type="PositiveIntegerField"><None></None></field>
+    <field name="focal_point_y" type="PositiveIntegerField"><None></None></field>
+    <field name="focal_point_width" type="PositiveIntegerField"><None></None></field>
+    <field name="focal_point_height" type="PositiveIntegerField"><None></None></field>
+    <field name="file_size" type="PositiveIntegerField">81850</field>
+  </object>
+  <object model="wagtailimages.image" pk="8">
+    <field name="collection" rel="ManyToOneRel" to="wagtailcore.collection">2</field>
+    <field name="title" type="CharField">Image 7</field>
+    <field name="file" type="FileField">original_images/image7.jpg</field>
+    <field name="width" type="IntegerField">800</field>
+    <field name="height" type="IntegerField">533</field>
+    <field name="created_at" type="DateTimeField">2018-05-18T21:07:01.235377+00:00</field>
+    <field name="uploaded_by_user" rel="ManyToOneRel" to="auth.user"><natural>admin</natural></field>
+    <field name="focal_point_x" type="PositiveIntegerField"><None></None></field>
+    <field name="focal_point_y" type="PositiveIntegerField"><None></None></field>
+    <field name="focal_point_width" type="PositiveIntegerField"><None></None></field>
+    <field name="focal_point_height" type="PositiveIntegerField"><None></None></field>
+    <field name="file_size" type="PositiveIntegerField">72009</field>
+  </object>
+  <object model="wagtailimages.image" pk="9">
+    <field name="collection" rel="ManyToOneRel" to="wagtailcore.collection">2</field>
+    <field name="title" type="CharField">Image 8</field>
+    <field name="file" type="FileField">original_images/image8.jpg</field>
+    <field name="width" type="IntegerField">800</field>
+    <field name="height" type="IntegerField">533</field>
+    <field name="created_at" type="DateTimeField">2018-05-18T21:07:03.984900+00:00</field>
+    <field name="uploaded_by_user" rel="ManyToOneRel" to="auth.user"><natural>admin</natural></field>
+    <field name="focal_point_x" type="PositiveIntegerField"><None></None></field>
+    <field name="focal_point_y" type="PositiveIntegerField"><None></None></field>
+    <field name="focal_point_width" type="PositiveIntegerField"><None></None></field>
+    <field name="focal_point_height" type="PositiveIntegerField"><None></None></field>
+    <field name="file_size" type="PositiveIntegerField">148479</field>
+  </object>
+  <object model="wagtailimages.image" pk="10">
+    <field name="collection" rel="ManyToOneRel" to="wagtailcore.collection">2</field>
+    <field name="title" type="CharField">Image 9</field>
+    <field name="file" type="FileField">original_images/image9.jpg</field>
+    <field name="width" type="IntegerField">800</field>
+    <field name="height" type="IntegerField">533</field>
+    <field name="created_at" type="DateTimeField">2018-05-18T21:07:04.483467+00:00</field>
+    <field name="uploaded_by_user" rel="ManyToOneRel" to="auth.user"><natural>admin</natural></field>
+    <field name="focal_point_x" type="PositiveIntegerField"><None></None></field>
+    <field name="focal_point_y" type="PositiveIntegerField"><None></None></field>
+    <field name="focal_point_width" type="PositiveIntegerField"><None></None></field>
+    <field name="focal_point_height" type="PositiveIntegerField"><None></None></field>
+    <field name="file_size" type="PositiveIntegerField">124462</field>
+  </object>
+  <object model="wagtailimages.image" pk="11">
+    <field name="collection" rel="ManyToOneRel" to="wagtailcore.collection">1</field>
+    <field name="title" type="CharField">keraban book cover</field>
+    <field name="file" type="FileField">original_images/keraban.jpg</field>
+    <field name="width" type="IntegerField">400</field>
+    <field name="height" type="IntegerField">600</field>
+    <field name="created_at" type="DateTimeField">2018-05-19T14:35:04.733843+00:00</field>
+    <field name="uploaded_by_user" rel="ManyToOneRel" to="auth.user"><natural>admin</natural></field>
+    <field name="focal_point_x" type="PositiveIntegerField"><None></None></field>
+    <field name="focal_point_y" type="PositiveIntegerField"><None></None></field>
+    <field name="focal_point_width" type="PositiveIntegerField"><None></None></field>
+    <field name="focal_point_height" type="PositiveIntegerField"><None></None></field>
+    <field name="file_size" type="PositiveIntegerField"><None></None></field>
+  </object>
+  <object model="wagtailimages.image" pk="12">
+    <field name="collection" rel="ManyToOneRel" to="wagtailcore.collection">1</field>
+    <field name="title" type="CharField">Logo Keraban</field>
+    <field name="file" type="FileField">original_images/logo.jpg</field>
+    <field name="width" type="IntegerField">281</field>
+    <field name="height" type="IntegerField">299</field>
+    <field name="created_at" type="DateTimeField">2018-05-22T17:05:32.027487+00:00</field>
+    <field name="uploaded_by_user" rel="ManyToOneRel" to="auth.user"><natural>admin</natural></field>
+    <field name="focal_point_x" type="PositiveIntegerField"><None></None></field>
+    <field name="focal_point_y" type="PositiveIntegerField"><None></None></field>
+    <field name="focal_point_width" type="PositiveIntegerField"><None></None></field>
+    <field name="focal_point_height" type="PositiveIntegerField"><None></None></field>
+    <field name="file_size" type="PositiveIntegerField"><None></None></field>
+  </object>
+  <object model="gallery.gallerypage" pk="9">
+    <field name="galery_type" type="CharField">COMP</field>
+    <field name="collection" rel="ManyToOneRel" to="wagtailcore.collection">2</field>
+  </object>
+  <object model="contact.contactpage" pk="7">
+    <field name="email" type="CharField">mcaniina@gmail.com</field>
+    <field name="thanks_page" rel="ManyToOneRel" to="wagtailcore.page">8</field>
+  </object>
+  <object model="locations.locationpage" pk="6">
+  </object>
+  <object model="features.featurespage" pk="5">
+    <field name="icon" type="TextField">fa-window-restore</field>
+  </object>
+  <object model="features.featurespage" pk="10">
+    <field name="icon" type="TextField">fa-search</field>
+  </object>
+  <object model="features.featurespage" pk="11">
+    <field name="icon" type="TextField">fa-google</field>
+  </object>
+  <object model="features.featurespage" pk="12">
+    <field name="icon" type="TextField">fa-envelope</field>
+  </object>
+  <object model="features.featurespage" pk="13">
+    <field name="icon" type="TextField">fa-server</field>
+  </object>
+  <object model="features.featurespage" pk="14">
+    <field name="icon" type="TextField">fa-tint</field>
+  </object>
+  <object model="features.featuresindexpage" pk="4">
+  </object>
+  <object model="home.homepage" pk="3">
+    <field name="image" rel="ManyToOneRel" to="wagtailimages.image">1</field>
+    <field name="hero_text" type="CharField">An inflexible, opinionated Content Management System</field>
+    <field name="hero_cta" type="CharField">Design a corporate/personal website and give your client an user to maintain it.</field>
+    <field name="hero_cta_link" rel="ManyToOneRel" to="wagtailcore.page"><None></None></field>
+    <field name="featured_section_1_title" type="CharField">About us</field>
+    <field name="featured_section_1" rel="ManyToOneRel" to="wagtailcore.page">15</field>
+    <field name="featured_section_2_title" type="CharField">Another page</field>
+    <field name="featured_section_2" rel="ManyToOneRel" to="wagtailcore.page"><None></None></field>
+    <field name="featured_features" rel="ManyToOneRel" to="wagtailcore.page">4</field>
+    <field name="featured_location" rel="ManyToOneRel" to="wagtailcore.page">6</field>
+    <field name="featured_gallery" rel="ManyToOneRel" to="wagtailcore.page">9</field>
+  </object>
+  <object model="home.standardpage" pk="4">
+    <field name="subtitle" type="CharField">List of Keraban CMS features.</field>
+    <field name="introduction" type="TextField">Keraban CMS highlights.</field>
+    <field name="image" rel="ManyToOneRel" to="wagtailimages.image">1</field>
+    <field name="body" type="TextField">[{"type": "paragraph", "value": "&lt;p&gt;&lt;/p&gt;", "id": "239e2afa-906e-462a-bc9e-ba1a0d234f9f"}]</field>
+  </object>
+  <object model="home.standardpage" pk="5">
+    <field name="subtitle" type="CharField">Work well on any device.</field>
+    <field name="introduction" type="TextField">Web pages look good on desktops, tablets, and phones.</field>
+    <field name="image" rel="ManyToOneRel" to="wagtailimages.image"><None></None></field>
+    <field name="body" type="TextField">[]</field>
+  </object>
+  <object model="home.standardpage" pk="6">
+    <field name="subtitle" type="CharField">Example location</field>
+    <field name="introduction" type="TextField">This is an example of the location of the business</field>
+    <field name="image" rel="ManyToOneRel" to="wagtailimages.image"><None></None></field>
+    <field name="body" type="TextField">[{"type": "paragraph", "value": "&lt;p&gt;As I&amp;#x27;ve not added an image to this page, then the headings just show page&amp;#x27;s &lt;b&gt;title&lt;/b&gt; and &lt;b&gt;subtitle&lt;/b&gt;.&lt;/p&gt;&lt;p&gt;&lt;/p&gt;&lt;p&gt;Map location is automatically filled with the data entered at admin page.&lt;/p&gt;", "id": "1f253120-3248-46d2-806c-e5020ec33146"}]</field>
+  </object>
+  <object model="home.standardpage" pk="7">
+    <field name="subtitle" type="CharField"><None></None></field>
+    <field name="introduction" type="TextField"></field>
+    <field name="image" rel="ManyToOneRel" to="wagtailimages.image"><None></None></field>
+    <field name="body" type="TextField">[{"type": "paragraph", "value": "&lt;p&gt;&lt;a href=\"http://localhost:8000/admin/\"&gt;admin area&lt;/a&gt;&lt;/p&gt;", "id": "fe4bf76a-e6e5-470c-8c25-1f917cae3ec0"}]</field>
+  </object>
+  <object model="home.standardpage" pk="8">
+    <field name="subtitle" type="CharField">Thank you</field>
+    <field name="introduction" type="TextField"></field>
+    <field name="image" rel="ManyToOneRel" to="wagtailimages.image"><None></None></field>
+    <field name="body" type="TextField">[{"type": "paragraph", "value": "&lt;p&gt;We have received your message, we will contact you as soon as possible.&lt;/p&gt;", "id": "dab32516-bc1b-4499-a645-680cb0d8c5b7"}]</field>
+  </object>
+  <object model="home.standardpage" pk="9">
+    <field name="subtitle" type="CharField">Screenshots</field>
+    <field name="introduction" type="TextField">Websites using Keraban CMS</field>
+    <field name="image" rel="ManyToOneRel" to="wagtailimages.image"><None></None></field>
+    <field name="body" type="TextField">[]</field>
+  </object>
+  <object model="home.standardpage" pk="10">
+    <field name="subtitle" type="CharField">Search Engines Optimized</field>
+    <field name="introduction" type="TextField">Easy to edit and generate all the metadata that Search Engine's needs to understand your website.</field>
+    <field name="image" rel="ManyToOneRel" to="wagtailimages.image"><None></None></field>
+    <field name="body" type="TextField">[]</field>
+  </object>
+  <object model="home.standardpage" pk="11">
+    <field name="subtitle" type="CharField">Knowledge Graph</field>
+    <field name="introduction" type="TextField">Included metadata to fill Google Knowledge Graph metadata</field>
+    <field name="image" rel="ManyToOneRel" to="wagtailimages.image"><None></None></field>
+    <field name="body" type="TextField">[]</field>
+  </object>
+  <object model="home.standardpage" pk="12">
+    <field name="subtitle" type="CharField">No need to set up email servers.</field>
+    <field name="introduction" type="TextField">Using formspree.io makes it possible to have contact forms without setting up email servers.</field>
+    <field name="image" rel="ManyToOneRel" to="wagtailimages.image"><None></None></field>
+    <field name="body" type="TextField">[]</field>
+  </object>
+  <object model="home.standardpage" pk="13">
+    <field name="subtitle" type="CharField">Amazing Backend</field>
+    <field name="introduction" type="TextField">Easy usage for non developers thanks to the amazing Wagtail's backend.</field>
+    <field name="image" rel="ManyToOneRel" to="wagtailimages.image"><None></None></field>
+    <field name="body" type="TextField">[]</field>
+  </object>
+  <object model="home.standardpage" pk="14">
+    <field name="subtitle" type="CharField">Syntactically awesome style sheets</field>
+    <field name="introduction" type="TextField">Customized Bootstrap 4 SASS.</field>
+    <field name="image" rel="ManyToOneRel" to="wagtailimages.image"><None></None></field>
+    <field name="body" type="TextField">[]</field>
+  </object>
+  <object model="home.standardpage" pk="15">
+    <field name="subtitle" type="CharField"><None></None></field>
+    <field name="introduction" type="TextField">Build and deploy websites like this one that can be easily maintained by non
+developer users.
+
+&lt;br&gt; Customize this website content with your own text and images, deploy and give create users to maintain it</field>
+    <field name="image" rel="ManyToOneRel" to="wagtailimages.image">11</field>
+    <field name="body" type="TextField">[{"type": "paragraph", "value": "&lt;h2&gt;Github Project&lt;/h2&gt;&lt;p&gt;Installation instructions and possible contributions (very welcome!): &lt;a href=\"https://github.com/marcanuy/keraban\"&gt;https://github.com/marcanuy/keraban&lt;/a&gt;&lt;/p&gt;&lt;h2&gt;Design Principles&lt;/h2&gt;&lt;p&gt;&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Consistent look &amp;amp; feel through all web pages&lt;/li&gt;&lt;li&gt;Implementation of web best practices:&lt;ul&gt;&lt;li&gt;&lt;b&gt;Semantic web&lt;/b&gt;: Schema.org meta tags&lt;/li&gt;&lt;li&gt;Optimized for Search Engines (SEO, Google&amp;#x27;s richsnippets)&lt;/li&gt;&lt;li&gt;Fully responsive&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;li&gt;Add and remove pages from backend&lt;/li&gt;&lt;/ul&gt;", "id": "4ffd95ce-70af-465f-9249-1bbf3d97df98"}]</field>
+  </object>
+</django-objects>
