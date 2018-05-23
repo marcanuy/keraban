@@ -135,9 +135,13 @@ This structure is most seen in websites for:
 
     	make compile-sass
 	
-5. Load fixture
+5. Generate database
 
-        ./manage.py loaddata home/fixtures/keraban.json
+		./manage.py migrate
+
+6. Load website data with a fixture
+
+        ./manage.py load_initial_data
 
 
 # Running locally
@@ -224,6 +228,7 @@ button **Add Social Profiles**.
 - add favicon
 - extend support for more specific Organization types <http://schema.org/Organization>
 - better integration of location page and business data address/location
+- submit it to <https://madewithwagtail.org/developers/torchbox/>
 
 # Credits
 
