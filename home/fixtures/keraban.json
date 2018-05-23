@@ -1,20 +1,20 @@
 [
 {
   "model": "home.socialprofiles",
-  "pk": 1,
-  "fields": {
-    "name": "Facebook",
-    "url": "https://es-la.facebook.com/nacional",
-    "icon": "fa-facebook"
-  }
-},
-{
-  "model": "home.socialprofiles",
   "pk": 2,
   "fields": {
     "name": "Twitter",
     "url": "https://twitter.com/marcanuy/",
     "icon": "fa-twitter"
+  }
+},
+{
+  "model": "home.socialprofiles",
+  "pk": 3,
+  "fields": {
+    "name": "Github",
+    "url": "https://github.com/marcanuy/keraban",
+    "icon": "fa-github"
   }
 },
 {
@@ -59,9 +59,9 @@
   "model": "wagtailcore.site",
   "pk": 2,
   "fields": {
-    "hostname": "localhost",
+    "hostname": "keraban.marcanuy.com",
     "port": 80,
-    "site_name": null,
+    "site_name": "Keraban CMS",
     "root_page": 3,
     "is_default_site": true
   }
@@ -307,17 +307,17 @@
     "has_unpublished_changes": false,
     "url_path": "/home/",
     "owner": null,
-    "seo_title": "",
+    "seo_title": "Keraban CMS",
     "show_in_menus": false,
-    "search_description": "",
+    "search_description": "CMS built on Wagtail. Download, customize content and deploy an amazing dynamic corporate website with users.",
     "go_live_at": null,
     "expire_at": null,
     "expired": false,
     "locked": false,
     "first_published_at": "2018-05-16T15:07:00.634Z",
-    "last_published_at": "2018-05-21T22:39:55.604Z",
-    "latest_revision_created_at": "2018-05-21T22:39:55.285Z",
-    "live_revision": 48
+    "last_published_at": "2018-05-22T22:12:41.780Z",
+    "latest_revision_created_at": "2018-05-22T22:12:41.569Z",
+    "live_revision": 57
   }
 },
 {
@@ -342,15 +342,15 @@
     ],
     "seo_title": "",
     "show_in_menus": true,
-    "search_description": "",
+    "search_description": "Keraban CMS list of features and their descriptions.",
     "go_live_at": null,
     "expire_at": null,
     "expired": false,
     "locked": false,
     "first_published_at": "2018-05-17T13:22:19.288Z",
-    "last_published_at": "2018-05-19T14:17:25.281Z",
-    "latest_revision_created_at": "2018-05-19T14:17:25.150Z",
-    "live_revision": 25
+    "last_published_at": "2018-05-22T20:44:34.382Z",
+    "latest_revision_created_at": "2018-05-22T20:44:34.223Z",
+    "live_revision": 52
   }
 },
 {
@@ -441,15 +441,15 @@
     ],
     "seo_title": "",
     "show_in_menus": true,
-    "search_description": "",
+    "search_description": "Contact form",
     "go_live_at": null,
     "expire_at": null,
     "expired": false,
     "locked": false,
     "first_published_at": "2018-05-17T19:16:22.655Z",
-    "last_published_at": "2018-05-19T20:16:14.149Z",
-    "latest_revision_created_at": "2018-05-19T20:16:13.960Z",
-    "live_revision": 46
+    "last_published_at": "2018-05-22T20:45:29.847Z",
+    "latest_revision_created_at": "2018-05-22T20:45:29.705Z",
+    "live_revision": 54
   }
 },
 {
@@ -507,15 +507,15 @@
     ],
     "seo_title": "",
     "show_in_menus": true,
-    "search_description": "",
+    "search_description": "Gallery of websites done with Keraban CMS",
     "go_live_at": null,
     "expire_at": null,
     "expired": false,
     "locked": false,
     "first_published_at": "2018-05-18T20:39:57.569Z",
-    "last_published_at": "2018-05-19T17:42:37.047Z",
-    "latest_revision_created_at": "2018-05-19T17:42:36.875Z",
-    "live_revision": 43
+    "last_published_at": "2018-05-22T20:46:10.725Z",
+    "latest_revision_created_at": "2018-05-22T20:46:10.571Z",
+    "live_revision": 55
   }
 },
 {
@@ -705,15 +705,15 @@
     ],
     "seo_title": "",
     "show_in_menus": true,
-    "search_description": "",
+    "search_description": "Location of the organization with a map.",
     "go_live_at": null,
     "expire_at": null,
     "expired": false,
     "locked": false,
     "first_published_at": "2018-05-19T14:30:16.289Z",
-    "last_published_at": "2018-05-19T18:02:21.693Z",
-    "latest_revision_created_at": "2018-05-19T18:02:21.469Z",
-    "live_revision": 45
+    "last_published_at": "2018-05-22T20:49:51.384Z",
+    "latest_revision_created_at": "2018-05-22T20:49:51.170Z",
+    "live_revision": 56
   }
 },
 {
@@ -1035,7 +1035,7 @@
     "featured_section_1_title": "About us",
     "featured_section_1": 15,
     "featured_section_2_title": "Another page",
-    "featured_section_2": 15,
+    "featured_section_2": null,
     "featured_features": 4,
     "featured_location": 6,
     "featured_gallery": 9
@@ -1156,9 +1156,9 @@
   "pk": 15,
   "fields": {
     "subtitle": null,
-    "introduction": "Build and deploy websites that can be easily maintained by non\r\ndeveloper users.\r\n\r\nIt aims to help developers build beautiful websites in one way, with a limited set of features using web design best practices.",
+    "introduction": "Build and deploy websites like this one that can be easily maintained by non\r\ndeveloper users.\r\n\r\n<br> Customize this website content with your own text and images, deploy and give create users to maintain it",
     "image": 11,
-    "body": "[{\"type\": \"paragraph\", \"value\": \"<h2>Design Principles</h2><p></p><ul><li>Consistent look &amp; feel through all web pages</li><li>Implementation of web best practices:<ul><li><b>Semantic web</b>: Schema.org meta tags</li><li>Optimized for Search Engines (SEO, Google&#x27;s richsnippets)</li><li>Fully responsive</li></ul></li><li>Add and remove pages from backend</li></ul>\", \"id\": \"4ffd95ce-70af-465f-9249-1bbf3d97df98\"}]"
+    "body": "[{\"type\": \"paragraph\", \"value\": \"<h2>Github Project</h2><p>Installation instructions and possible contributions (very welcome!): <a href=\\\"https://github.com/marcanuy/keraban\\\">https://github.com/marcanuy/keraban</a></p><h2>Design Principles</h2><p></p><ul><li>Consistent look &amp; feel through all web pages</li><li>Implementation of web best practices:<ul><li><b>Semantic web</b>: Schema.org meta tags</li><li>Optimized for Search Engines (SEO, Google&#x27;s richsnippets)</li><li>Fully responsive</li></ul></li><li>Add and remove pages from backend</li></ul>\", \"id\": \"4ffd95ce-70af-465f-9249-1bbf3d97df98\"}]"
   }
 }
 ]
