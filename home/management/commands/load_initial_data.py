@@ -13,7 +13,7 @@ class Command(BaseCommand):
     """
     def handle(self, **options):
         fixtures_dir = os.path.join(settings.BASE_DIR, 'home', 'fixtures')
-        fixture_file = os.path.join(fixtures_dir, 'keraban.json')
+        fixture_file = os.path.join(fixtures_dir, 'keraban.xml')
 
         # Wagtail creates default Site and Page instances during install, but we already have
         # them in the data load. Remove the auto-generated ones.
