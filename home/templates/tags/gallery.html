@@ -1,0 +1,11 @@
+{% load wagtailimages_tags %}
+
+{% for img in images %}
+{% image img width-1400 as img_obj %}
+<div class="col-xs-12 col-sm-6 col-md-4">
+    <figure class="gallery-figure">
+        <img src="{{img_obj.url}}" class="img-responsive" />
+    </figure>
+</div>
+{{ image.title }}
+{% endfor %}

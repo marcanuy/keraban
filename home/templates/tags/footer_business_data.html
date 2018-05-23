@@ -1,0 +1,108 @@
+{% load wagtailimages_tags business_tags %}
+
+{% if business %}
+<div itemscope itemtype="https://schema.org/LocalBusiness">
+    {% if business.geo_coordinates %}
+    <div itemprop="geo" itemscope itemtype="https://schema.org/GeoCoordinates">
+	{% with data=business.geo_coordinates_as_list %}
+	<meta itemprop="latitude" content="{{data.0}}" />
+	<meta itemprop="longitude" content="{{data.1}}" />
+	{% endwith %}
+    </div>
+    {% endif %}
+
+    {% if business.logo %}
+    {% image business.logo fill-400x400 as image %}
+    <meta itemprop="logo" content="{{image.url}}" />
+    {% endif %}
+
+    {% if business.image %}
+    {% image business.image fill-1920x600 as image %}
+    <meta itemprop="image" content="{{image.url}}" />
+    {% endif %}
+
+    <link itemprop="url" href="{{site_root.url}}"> 
+
+    {% with contact_points=business.contact_points.all %}
+    {% if contact_points %}
+    <div itemprop="contactPoint" itemscope itemtype="https://schema.org/ContactPoint">
+	{% for cp in contact_points %}
+	{% include "home/includes/organization_contact_point.html" with contact=cp %}
+	{% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+
+    <ul class="text-center list-inline">
+	{% for profile in profiles %}
+        <li class="list-inline-item">
+            <a itemprop="sameAs" href="{{profile.url}}">
+                <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x"></i>
+                    <i class="fa fa-{{profile.name|lower}} fa-stack-1x fa-inverse"></i>
+                </span>
+            </a>
+        </li>
+	{% endfor %}
+    </ul>
+
+    <div class="container">
+	<div class="row">
+	    <div class="col-6 col-md">
+		{% if business.name %}
+		<h5 itemprop="name" class="name">
+		    {{business.name}}
+		</h5>
+		{% endif %}
+
+		<ul class="list-unstyled text-small business">
+		    {% if business.email %}
+		    <li itemprop="email" class="text-muted">
+			<i class="fa fa-envelope"></i> {{business.email}}
+		    </li>
+		    {% endif %}
+
+		    {% if business.address %}
+		    <li class="text-muted">
+			<div itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+			    <i class="fa fa-building-o"></i>
+			    {% with data=business.address_as_list %}
+			    {% if data.0 %}<span itemprop="streetAddress">{{data.0}}</span>{% endif %}
+			    {% if data.1 %}<span itemprop="addressLocality">{{data.1}}</span>{% endif %}
+			    {% if data.2 %}<span itemprop="addressRegion">{{data.2}}</span>{% endif %}
+			    {% if data.3 %}<span itemprop="postalCode">{{data.3}}</span>{% endif %}
+			    {% if data.4 %}<span itemprop="addressCountry">{{data.4}}</span>{% endif %}
+			    {% endwith %}
+			</div>
+		    </li>
+		    {% endif %}
+		    
+		    {% if business.hours %}
+		    <li class="text-muted">
+			{{business.hours}}
+		    </li>
+		    {% endif %}
+
+		    {% if business.phone %}
+		    <li itemprop="telephone" >
+			<i class="fa fa-phone"></i> 
+			{% for tel in business.phone_as_list %}
+			<span class="text-muted mr-2">{{tel}}</span>
+			{% endfor %}
+		    </li>
+		    {% endif %}
+
+		    {% if business.description %}
+		    <li itemprop="description" class="text-muted">
+			{{business.description}}
+		    </li>
+		    {% endif %}
+		</ul>
+	    </div>
+	</div>
+    </div>
+    
+
+</div>
+{% endif %}

@@ -1,0 +1,47 @@
+{% load wagtailcore_tags %}
+
+
+<nav class="breadcrumb-container" aria-label="breadcrumb" role="navigation">
+    <div class="container">
+	<div class="row">
+            <div class="col-lg-12">
+		{% if ancestors %}
+		<ol class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+
+                    <li itemprop="itemListElement" itemscope
+			itemtype="http://schema.org/ListItem"
+			class="breadcrumb-item">
+			<a itemscope itemtype="http://schema.org/Thing"
+			   itemprop="item"
+			   href="/"><i class="fa fa-home" aria-hidden="true"></i><span itemprop="name" class="hidden" aria-hidden="false"> Home</span></a>
+			<meta itemprop="position" content="1" />
+		    </li>
+                    {% for ancestor in ancestors|slice:"1:" %}
+                    {% if forloop.last %}
+                    <li itemprop="itemListElement" itemscope
+			itemtype="http://schema.org/ListItem"
+				  class="breadcrumb-item active" aria-level="{{ancestors|length}}" aria-current="page">
+			<a itemscope itemtype="http://schema.org/Thing"
+			   itemprop="item">
+                            <span itemprop="name">{{ ancestor }}</span>
+			</a>
+			<meta itemprop="position" content="{{forloop.counter|add:1}}" />
+
+                    </li>
+                    {% else %}
+                    <li itemprop="itemListElement" itemscope
+			itemtype="http://schema.org/ListItem"
+				  class="breadcrumb-item">
+			<a itemscope itemtype="http://schema.org/Thing"
+			   itemprop="item"
+			   href="{% pageurl ancestor %}" aria-level="{% cycle 1 2 3 4 5 %}"><span itemprop="name">{{ ancestor }}</span></a>
+			<meta itemprop="position" content="{{forloop.counter|add:1}}" />
+		    </li>  
+                    {% endif %}
+                    {% endfor %}
+		</ol>
+		{% endif %}
+            </div>
+	</div>
+    </div>
+</nav>

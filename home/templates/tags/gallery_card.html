@@ -1,0 +1,22 @@
+{% load wagtailimages_tags %}
+
+<section class="gallery-block cards-gallery">
+    <div class="container">
+        <div class="row">
+	    {% for img in images %}
+	    {% image img width-1400 as img_obj %}
+	    <div class="col-md-6 col-lg-4">
+	        <div class="card border-0 transform-on-hover">
+	            <a class="lightbox" href="{{img_obj.url}}">
+	                <img src="{{img_obj.url}}" alt="Card Image" class="card-img-top">
+	            </a>
+	            <div class="card-body">
+	                <h6><a href="#">{{img.title}}</a></h6>
+	                {%comment%}<p class="text-muted card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna.</p>{%endcomment%}
+	            </div>
+	        </div>
+	    </div>
+	    {% endfor %}
+	</div>
+    </div>
+</section>

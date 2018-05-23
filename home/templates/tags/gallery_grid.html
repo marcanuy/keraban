@@ -1,0 +1,16 @@
+{% load wagtailimages_tags %}
+
+<section class="gallery-block grid-gallery">
+    <div class="container">
+        <div class="row">
+	    {% for img in images %}
+	    {% image img width-1400 as img_obj %}
+            <div class="col-md-6 col-lg-4 item">
+                <a class="lightbox" href="{{img_obj.url}}">
+                    <img class="img-fluid image scale-on-hover" src="{{img_obj.url}}">
+                </a>
+            </div>
+	    {% endfor %}
+	</div>
+    </div>
+</section>

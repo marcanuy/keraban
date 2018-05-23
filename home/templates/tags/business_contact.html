@@ -1,0 +1,12 @@
+{% if business %}
+<div>
+    <i class="fa fa-phone"></i>
+    <ul class="list-/inline text-/center">
+	{% if business.phone %}
+	{% for tel in business.phone_as_list %}
+	<li class="list/-inline-item text/-center">{{tel}}</li>
+	{% endfor %}
+	{% endif %}
+    </ul>
+</div>
+{% endif %}
