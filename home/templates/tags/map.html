@@ -1,3 +1,5 @@
+{% load i18n %}
+
 <style>
  /* Following two selectors needed for Google map embed */
  #map {
@@ -9,7 +11,7 @@
     {% if address %}
     <div class="row">
         <div class="col-lg-2 offset-lg-5 location-address">
-            <h3>Address</h3>
+            <h3>{% trans "Address" %}</h3>
             <address>{{ address }}</address>
         </div>
     </div>

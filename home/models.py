@@ -1,5 +1,6 @@
 from django import forms
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 from collections import defaultdict
 
@@ -32,9 +33,9 @@ class SocialProfiles(models.Model):
     """
     Business Social Profile links
     """
-    name = models.CharField(max_length=255, help_text="name of the social network")
-    url = models.URLField(help_text="Example: https://facebook.com/my-business-page")
-    icon = models.CharField(max_length=20, help_text="fontawesome icon of the social network. Ex: fa-facebook")
+    name = models.CharField(_("name"), max_length=255, help_text=_("Name of the social network"))
+    url = models.URLField(help_text=_("Example: https://facebook.com/my-business-page"))
+    icon = models.CharField(max_length=20, help_text=_("fontawesome icon of the social network. Ex: fa-facebook"))
     
     panels = [
         FieldPanel('name'),
@@ -46,7 +47,8 @@ class SocialProfiles(models.Model):
         return self.name
 
     class Meta:
-        verbose_name_plural = 'Social networks'
+        verbose_name = _('Social Profile')
+        verbose_name_plural = _('Social networks')
 
 @register_snippet
 class ContactNumbers(models.Model):
@@ -54,7 +56,7 @@ class ContactNumbers(models.Model):
     Implementation of Schema.org's ContactPoint main attributes
     http://schema.org/ContactPoint
     """
-    telephone = models.CharField(max_length=20, help_text="Telephone number. Ex.: +1-877-296-1018")
+    telephone = models.CharField(max_length=20, help_text=_("Telephone number. Ex.: +1-877-296-1018"))
     contact_type = models.CharField(
         max_length=2,
         choices=CONTACT_TYPES_CHOICES,
@@ -62,12 +64,12 @@ class ContactNumbers(models.Model):
     )
     area_served = models.CharField(
         max_length=2,
-        help_text='The geographical region served by the number, specified as a AdministrativeArea. Countries may be specified concisely using just their standard ISO-3166 two-letter code, as in the examples below. If omitted, the number is assumed to be global. Examples: "US", "GB", ["US","CA","MX"]',
+        help_text=_('The geographical region served by the number, specified as a AdministrativeArea. Countries may be specified concisely using just their standard ISO-3166 two-letter code, as in the examples below. If omitted, the number is assumed to be global. Examples: "US", "GB", ["US","CA","MX"]'),
         null=True,
         blank=True)
     available_language = models.CharField(
         max_length=20,
-        help_text='Details about the language spoken. Languages may be specified by their common English name. If omitted, the language defaults to English. Examples: "English", "Spanish", ["French","English"]',
+        help_text=_('Details about the language spoken. Languages may be specified by their common English name. If omitted, the language defaults to English. Examples: "English", "Spanish", ["French","English"]'),
         null=True,
         blank=True)
     panels = [
@@ -88,7 +90,8 @@ class ContactNumbers(models.Model):
         return self.telephone
 
     class Meta:
-        verbose_name_plural = 'Contact Points'
+        verbose_name = _('Contact Point')
+        verbose_name_plural = _('Contact Points')
 
 
 @register_snippet
@@ -119,11 +122,11 @@ class Organization(models.Model):
           Street Address
           Opening Hours
     """
-    name = models.CharField("Business name",
+    name = models.CharField(_("Business name"),
                             max_length=100,
                             null=True,
                             blank=True,
-                            help_text="""The name of your business that will appear on Google.""")
+                            help_text=_("""The name of your business that will appear on Google."""))
 
     logo = models.ForeignKey(
         'wagtailimages.Image',
@@ -136,15 +139,15 @@ class Organization(models.Model):
 
 
 
-    email = models.CharField("Business email address",
+    email = models.CharField(_("Business email address"),
                             max_length=100,
                             null=True,
                             blank=True,
-                            help_text="""The email of your business.""")
+                            help_text=_("""The email of your business."""))
 
     address = models.TextField(null=True,
                                blank=True,
-                               help_text=""" Comma separated list with the following format:<street address>,<address locality (city)>, <address region>,<postal code>,<address country (two letters)>. Ex.: 1901 Lemur Ave, Sunnyvale, CA, 94086, US """)
+                               help_text=_("""Comma separated list with the following format:<street address>,<address locality (city)>, <address region>,<postal code>,<address country (two letters)>. Ex.: 1901 Lemur Ave, Sunnyvale, CA, 94086, US """))
 
     hours = models.TextField(null=True,
                              blank=True,
@@ -152,7 +155,7 @@ class Organization(models.Model):
                              """ """)
     phone = models.TextField(null=True,
                              blank=True,
-                             help_text=""" """)
+                             help_text=_(""" """))
 
     image = models.ForeignKey(
         'wagtailimages.Image',
@@ -160,19 +163,18 @@ class Organization(models.Model):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
-        help_text='Landscape mode only; horizontal width between 1000px and 3000px.'
+        help_text=_('Landscape mode only; horizontal width between 1000px and 3000px.')
     )
 
     description = models.TextField(null=True,
                                    blank=True,
-                                   help_text=""" From the business """)
+                                   help_text=_("""From the business """))
 
     #body = RichTextField()
 
     geo_coordinates = models.TextField(null=True,
                                        blank=True,
-                                       help_text=
-                                       """Comma separated geo coordinates as <latitude,longitude>. Es: -34.8844053,-56.1609289""")
+                                       help_text=_("""Comma separated geo coordinates as <latitude,longitude>. Es: -34.8844053,-56.1609289"""))
 
     contact_points = models.ManyToManyField('ContactNumbers', blank=True)
 
@@ -202,7 +204,8 @@ class Organization(models.Model):
         return "Business text"
 
     class Meta:
-        verbose_name_plural = 'Organization'
+        verbose_name = _('Organization')
+        verbose_name_plural = _('Organizations')
 
 
 class StandardPage(ModelMeta, Page):
@@ -211,12 +214,12 @@ class StandardPage(ModelMeta, Page):
     """
     subtitle = models.CharField(
         max_length=255,
-        help_text='Write a subtitle for the page',
+        help_text=_('Write a subtitle for the page'),
         null=True,
         blank=True,
     )
     introduction = models.TextField(
-        help_text='Text to describe the page',
+        help_text=_('Text to describe the page'),
         blank=True)
     image = models.ForeignKey(
         'wagtailimages.Image',
@@ -279,18 +282,18 @@ class HomePage(ModelMeta, Page):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
-        help_text='Homepage image'
+        help_text=_('Homepage image')
     )
     hero_text = models.CharField(
         max_length=255,
-        help_text='Write an introduction for the business'
+        help_text=_('Write an introduction for the business')
         )
     hero_cta = models.CharField(
-        verbose_name='Hero Call To Action',
+        verbose_name=_('Hero Call To Action'),
         null=True,
         blank=True,
         max_length=255,
-        help_text='Text to display on Call to Action'
+        help_text=_('Text to display on Call to Action')
         )
     hero_cta_link = models.ForeignKey(
         'wagtailcore.Page',
@@ -298,8 +301,8 @@ class HomePage(ModelMeta, Page):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
-        verbose_name='Hero CTA link',
-        help_text='Choose a page to link to for the Call to Action'
+        verbose_name=_('Hero CTA link'),
+        help_text=_('Choose a page to link to for the Call to Action')
     )
 
     # Featured sections on the HomePage
@@ -307,7 +310,7 @@ class HomePage(ModelMeta, Page):
         null=True,
         blank=True,
         max_length=255,
-        help_text='Title to display above the promo copy'
+        help_text=_('Title to display above the promo copy')
     )
     featured_section_1 = models.ForeignKey(
         'wagtailcore.Page',
@@ -315,16 +318,15 @@ class HomePage(ModelMeta, Page):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
-        help_text='First featured section for the homepage. Will display up to '
-        'three child items.',
-        verbose_name='Featured section 1'
+        help_text=_('First featured section for the homepage. Will display up to three child items'),
+        verbose_name=_('Featured section 1')
     )
 
     featured_section_2_title = models.CharField(
         null=True,
         blank=True,
         max_length=255,
-        help_text='Title to display above the promo copy'
+        help_text=_('Title to display above the promo copy')
     )
     featured_section_2 = models.ForeignKey(
         'wagtailcore.Page',
@@ -332,9 +334,8 @@ class HomePage(ModelMeta, Page):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
-        help_text='Second featured section for the homepage. Will display up to '
-        'three child items.',
-        verbose_name='Featured section 2'
+        help_text=_('Second featured section for the homepage. Will display up to three child items.'),
+        verbose_name=_('Featured section 2')
     )
 
     featured_features = models.ForeignKey(
@@ -343,8 +344,8 @@ class HomePage(ModelMeta, Page):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
-        help_text='Features section.',
-        verbose_name='Featured features page'
+        help_text=_('Features section.'),
+        verbose_name=_('Featured features page')
     )
 
     featured_location = models.ForeignKey(
@@ -353,8 +354,8 @@ class HomePage(ModelMeta, Page):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
-        help_text='Location section.',
-        verbose_name='Featured location page at homepage'
+        help_text=_('Location section.'),
+        verbose_name=_('Featured location page at homepage')
     )
 
     featured_gallery = models.ForeignKey(
@@ -363,8 +364,8 @@ class HomePage(ModelMeta, Page):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
-        help_text='Gallery section.',
-        verbose_name='Gallery section at homepage'
+        help_text=_('Gallery section.'),
+        verbose_name=_('Gallery section at homepage')
     )
 
     content_panels = Page.content_panels + [
@@ -375,7 +376,7 @@ class HomePage(ModelMeta, Page):
                 FieldPanel('hero_cta'),
                 PageChooserPanel('hero_cta_link'),
                 ])
-            ], heading="Hero section"),
+            ], heading=_("Hero section")),
         MultiFieldPanel([
             MultiFieldPanel([
                 FieldPanel('featured_section_1_title'),
@@ -388,7 +389,7 @@ class HomePage(ModelMeta, Page):
             PageChooserPanel('featured_features'),
             PageChooserPanel('featured_gallery'),
             PageChooserPanel('featured_location'),
-        ], heading="Featured homepage sections", classname="collapsible")
+        ], heading=_("Featured homepage sections"), classname="collapsible")
     ]
 
     def __str__(self):
