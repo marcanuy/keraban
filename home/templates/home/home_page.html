@@ -19,8 +19,8 @@
             <div class="container">
               <div class="carousel-caption text-white oppacity">
                 <h1>{{ page.title }}</h1>
-                <h2>{{ page.hero_text }}</h2>
-                <p>
+                <p class="lead px-2">{{ page.hero_text }}</p>
+                <p class="px-2">
                     {% if page.hero_cta_link %}
 		    <a class="hero-cta-link hvr-icon-forward" href="{% pageurl page.hero_cta_link %}" role="button">{{ page.hero_cta }}</a>
                     {% elif page.hero_cta %}
@@ -49,13 +49,15 @@
 	</div>
 	{% endif %}
 
-	<hr class="featurette-divider">
+
 
 	{% if page.featured_section_1 %}
+	<hr class="featurette-divider">
+
 	<div class="row featurette">
 	    <div class="col-xs-12 col-md-7 order-md-2">
-		<h2 class="featurette-heading">{{page.featured_section_1.title}} <span class="text-muted">{% if page.featured_section_1.specific.subtitle %}{{page.featured_section_1.specific.subtitle}}{% endif %}</span></h2>
-		<p class="lead">{{page.featured_section_1.specific.introduction}}</p>
+		<h2 class="featurette-heading">{{page.featured_section_1_title}}</h2>
+		<p class="lead">{{page.featured_section_1.specific.introduction|linebreaks}}</p>
 		
 		<a href="{% pageurl page.featured_section_1.specific %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Ver mas</a>
 	    </div>
@@ -93,6 +95,7 @@
 	{% endif %}
     </div>
 
+    {% if page.featured_section_3 %}
     <hr class="featurette-divider">
 
     <div class="container">
@@ -116,10 +119,11 @@
             </div>
 	</div>
     </div>
+    {% endif %}
 
-    <hr class="featurette-divider">
 
     {% if page.featured_features %}
+    <hr class="featurette-divider">
     <div class="container features">
 	<div class="row no-gutters">
 	    <div class="col">
@@ -151,9 +155,10 @@
     </div>
     {% endif %}
 
-    <hr class="featurette-divider">
+
 
     {% if page.featured_gallery %}
+    <hr class="featurette-divider">
     <div class="container gallery">
 	<div class="row">
 	    <div class="col">
@@ -164,9 +169,10 @@
     {% gallery_compact page.featured_gallery.specific.collection %}
     {% endif %}
 
-    <hr class="featurette-divider">
+
 
     {% if page.featured_location %}
+    <hr class="featurette-divider">
     {% with location=page.featured_location.specific %}
     <div class="container location">
 	<div class="row no-gutters">
@@ -191,10 +197,12 @@
 {% endblock %}
 
 {% block extra_js %}
+{% if page.featured_gallery %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
 <script>
  baguetteBox.run('.compact-gallery', {
      animation: 'slideIn',
  });
 </script>
+{% endif %}
 {% endblock extra_js %}
