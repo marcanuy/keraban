@@ -286,7 +286,9 @@ class HomePage(ModelMeta, Page):
         help_text='Write an introduction for the business'
         )
     hero_cta = models.CharField(
-        verbose_name='Hero CTA',
+        verbose_name='Hero Call To Action',
+        null=True,
+        blank=True,
         max_length=255,
         help_text='Text to display on Call to Action'
         )

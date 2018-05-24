@@ -18,12 +18,12 @@
             <img class="first-slide" src="{{ image.url }}" alt="First slide">
             <div class="container">
               <div class="carousel-caption text-white oppacity">
-                <h1><div class="">{{ page.title }}</div></h1>
-                <p class="">{{ page.hero_text }}</p>
-                <p class="">
+                <h1>{{ page.title }}</h1>
+                <h2>{{ page.hero_text }}</h2>
+                <p>
                     {% if page.hero_cta_link %}
 		    <a class="hero-cta-link hvr-icon-forward" href="{% pageurl page.hero_cta_link %}" role="button">{{ page.hero_cta }}</a>
-                    {% else %}
+                    {% elif page.hero_cta %}
                     {{ page.hero_cta }}
                     {% endif %}
 		</p>
