@@ -853,19 +853,24 @@ footer {
 //   text-shadow: 5px 6px 7px #000;
 // }
 
-// .homepage .hero h1 {
-//   font-size: 2.2em;
-//   text-transform: uppercase;
-// }
+.homepage .carousel-item h1 {
+  font-size: 2.2em;
+  text-transform: uppercase;
+}
 
-// .homepage .hero h1:after {
-//   background-color: rgba(255,255,255, 0.7);
-//   content: "";
-//   display: block;
-//   height: 5px;
-//   margin: 20px auto;
-//   width: 250px;
-// }
+.homepage .carousel-item p {
+    padding-right: 2rem;
+    padding-left: 2rem;
+}
+
+.homepage .carousel-item h1:after {
+  background-color: rgba(255,255,255, 0.7);
+  content: "";
+  display: block;
+  height: 3px;
+  margin: 20px auto;
+  width: 250px;
+}
 
 // .homepage .home-hero {
 //   margin-bottom: 0;
