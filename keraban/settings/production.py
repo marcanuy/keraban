@@ -1,6 +1,5 @@
 from .base import *
-
-
+import dj_database_url
 
 DEBUG = False
 
@@ -34,3 +33,7 @@ if 'AWS_STORAGE_BUCKET_NAME' in os.environ:
 
 # https://django-analytical.readthedocs.io/
 GOOGLE_ANALYTICS_PROPERTY_ID = 'UA-64047109-3'
+
+# https://github.com/kennethreitz/dj-database-url
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
