@@ -8,15 +8,16 @@
 
 {% include "home/includes/header.html" %}
 <div class="standardpage">
-    {% block bodycontent %}
-    {% endblock bodycontent%}
-
     <div class="container mt-4">
 	<div class="row">
 	    <div class="col">
 		{{page.body}}
 	    </div>
 	</div>
+
+
+    {% block bodycontent %}
+    {% endblock bodycontent%}
     <hr />
     {% block breadcrumbs %}
     {% breadcrumbs %}
