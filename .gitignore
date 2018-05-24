@@ -106,5 +106,6 @@ venv.bak/
 deploy-to-webfaction.sh
 
 /static
+!keraban/static
 /media/images
 /keraban/static/css/styles.css
