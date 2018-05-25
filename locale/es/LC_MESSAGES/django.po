@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-25 13:24+0000\n"
+"POT-Creation-Date: 2018-05-25 14:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,17 +22,21 @@ msgstr ""
 msgid "Your name"
 msgstr "Tu nombre"
 
-#: contact/forms.py:6
+#: contact/forms.py:8
 msgid "Your email"
 msgstr "Tu correo"
 
-#: contact/forms.py:7
+#: contact/forms.py:11
 msgid "Phone"
 msgstr "Teléfono"
 
-#: contact/forms.py:11
+#: contact/forms.py:15
 msgid "Message"
 msgstr "Mensaje"
+
+#: contact/templates/contact/contact_page.html:32
+msgid "Submit"
+msgstr "Enviar"
 
 #: home/models.py:36
 msgid "name"
@@ -222,7 +226,7 @@ msgstr ""
 msgid "Featured homepage sections"
 msgstr ""
 
-#: home/templates/home/home_page.html:152
+#: home/templates/home/home_page.html:62 home/templates/home/home_page.html:152
 #: home/templates/home/home_page.html:188
 msgid "View more"
 msgstr "Ver más"
