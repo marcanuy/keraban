@@ -5,7 +5,7 @@ class ContactForm(forms.Form):
     name = forms.CharField(label=_('Your name'),
                            max_length=100,
                            widget=forms.TextInput(attrs={'class': 'form-control'}))
-    email = forms.CharField(label=_('Your email'),
+    email = forms.EmailField(label=_('Your email'),
                             max_length=100,
                             widget=forms.EmailInput(attrs={'class': 'form-control'}))
     phone = forms.CharField(label=_("Phone"),
