@@ -7,7 +7,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-8 form-page">
+        <div class="col-md-8 form-page mb-3">
             <form action="https://formspree.io/{{page.email}}" method="POST" role="form">
                 {% if form.subject.errors %}
                 <ol role="alertdialog">
@@ -32,7 +32,7 @@
                 <input type="submit">
             </form>
         </div>
-	<div class="col-4">
+	<div class="col-md-4">
 	    {% get_business_contact %}
 	</div>
     </div>
