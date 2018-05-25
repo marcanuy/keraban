@@ -59,7 +59,7 @@
 		<h2 class="featurette-heading">{{page.featured_section_1_title}}</h2>
 		<p class="lead">{{page.featured_section_1.specific.introduction|linebreaks}}</p>
 		
-		<a href="{% pageurl page.featured_section_1.specific %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Ver mas</a>
+		<a href="{% pageurl page.featured_section_1.specific %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">{% trans "View more" %}</a>
 	    </div>
 	    <div class="col-md-5 d-none d-md-block">
 		{% image page.featured_section_1.specific.image fill-500x500-c100 as featured1_img %}
