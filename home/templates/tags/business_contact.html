@@ -1,12 +1,15 @@
+{% load i18n %}
+
 {% if business %}
-<div>
-    <i class="fa fa-phone"></i>
-    <ul class="list-/inline text-/center">
+<div class="col-9">
+    <h2> {% trans "Telephone" %}</h2>
+    <ul class="list-/inline pl-1">
 	{% if business.phone %}
 	{% for tel in business.phone_as_list %}
-	<li class="list/-inline-item text/-center">{{tel}}</li>
+	<li class="list/-inline-item text/-center list-unstyled"><i class="fa fa-phone fa-/2x"></i> {{tel}}</li>
 	{% endfor %}
 	{% endif %}
     </ul>
+    
 </div>
 {% endif %}

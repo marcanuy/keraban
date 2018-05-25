@@ -1,7 +1,9 @@
 {% extends "home/standard_page.html" %}
-{% load business_tags  wagtailcore_tags %}
+{% load business_tags  wagtailcore_tags i18n %}
 
 {% block bodycontent %}
+
+{% get_language_info for LANGUAGE_CODE as lang %}
 
 <div class="container">
     <div class="row">
@@ -15,12 +17,12 @@
                 </ol>
                 {% endif %}
 
-		<input type="hidden" name="_language" value="en" />
+		<input type="hidden" name="_language" value="{{lang.code}}" />
 		<input type="hidden" name="_next" value="{% pageurl page.thanks_page %}" />
 		
                 {% for field in form %}
                 <div class="fieldWrapper form-group" aria-required={% if field.field.required %}"true"{% else %}"false"{% endif %}>
-                    {{ field.label_tag }}{% if field.field.required %}<span class="required">*</span>{% endif %}
+                    {% trans field.label_tag %}{% if field.field.required %}<span class="required">*</span>{% endif %}
                     {{ field }}
                     {% if field.help_text %}
                     <p class="help">{{ field.help_text|safe }}</p>

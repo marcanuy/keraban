@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load wagtailimages_tags wagtailcore_tags gallery_tags static location_tags %}
+{% load wagtailimages_tags wagtailcore_tags gallery_tags static location_tags i18n %}
 
 {% block body_class %}template-homepage{% endblock %}
 
@@ -149,7 +149,7 @@
 	</div>
 	<div class="row">
 	    <div class="col d-flex justify-content-center">
-		<a href="{% pageurl page.featured_features.specific %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">View Features</a>
+		<a href="{% pageurl page.featured_features.specific %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">{% trans "View more" %}</a>
 	    </div>
 	</div>
     </div>
@@ -185,7 +185,7 @@
 
 	<div class="row mt-4">
 	    <div class="col d-flex justify-content-center">
-		<a href="{% pageurl page.featured_location.specific %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">View Location</a>
+		<a href="{% pageurl page.featured_location.specific %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">{% trans "View more" %}</a>
 	    </div>
 	</div>
     </div>

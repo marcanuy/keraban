@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-24 17:56-0300\n"
+"POT-Creation-Date: 2018-05-25 13:24+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,13 +18,29 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: contact/forms.py:5
+msgid "Your name"
+msgstr "Tu nombre"
+
+#: contact/forms.py:6
+msgid "Your email"
+msgstr "Tu correo"
+
+#: contact/forms.py:7
+msgid "Phone"
+msgstr "Teléfono"
+
+#: contact/forms.py:11
+msgid "Message"
+msgstr "Mensaje"
+
 #: home/models.py:36
 msgid "name"
-msgstr ""
+msgstr "nombre"
 
 #: home/models.py:36
 msgid "Name of the social network"
-msgstr ""
+msgstr "Nombre de la red social"
 
 #: home/models.py:37
 msgid "Example: https://facebook.com/my-business-page"
@@ -206,14 +222,19 @@ msgstr ""
 msgid "Featured homepage sections"
 msgstr ""
 
+#: home/templates/home/home_page.html:152
+#: home/templates/home/home_page.html:188
+msgid "View more"
+msgstr "Ver más"
+
+#: home/templates/tags/business_contact.html:5
+msgid "Telephone"
+msgstr "Teléfono"
+
 #: home/templates/tags/map.html:14
 msgid "Address"
 msgstr "Dirección"
 
-#: keraban/settings/base.py:150
-msgid "English"
-msgstr ""
-
-#: keraban/settings/base.py:151
+#: keraban/settings/base.py:152
 msgid "Spanish"
 msgstr ""
