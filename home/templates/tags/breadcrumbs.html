@@ -1,4 +1,4 @@
-{% load wagtailcore_tags %}
+{% load wagtailcore_tags i18n %}
 
 
 <nav class="breadcrumb-container" aria-label="breadcrumb" role="navigation">
@@ -13,7 +13,7 @@
 			class="breadcrumb-item">
 			<a itemscope itemtype="http://schema.org/Thing"
 			   itemprop="item"
-			   href="/"><i class="fa fa-home" aria-hidden="true"></i><span itemprop="name" class="hidden" aria-hidden="false"> Home</span></a>
+			   href="/"><i class="fa fa-home" aria-hidden="true"></i><span itemprop="name" class="hidden" aria-hidden="false"> {% trans 'Home' %}</span></a>
 			<meta itemprop="position" content="1" />
 		    </li>
                     {% for ancestor in ancestors|slice:"1:" %}
