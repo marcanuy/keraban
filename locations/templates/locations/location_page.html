@@ -1,5 +1,5 @@
 {% extends "home/standard_page.html" %}
-{% load navigation_tags location_tags %}
+{% load navigation_tags location_tags i18n %}
 
 {% block head-extra %}
 <style>
@@ -15,7 +15,7 @@
 <div class="container">
     <div class="location-address-out-map">
 	{% if address %}
-	<h3>Address</h3>
+	<h3>{% trans 'Address' %}</h3>
 	<address>{{ address }}</address>
 	{% endif %}
     </div>
