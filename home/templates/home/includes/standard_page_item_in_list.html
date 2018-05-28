@@ -1,0 +1,16 @@
+{% load wagtailimages_tags wagtailcore_tags i18n %}
+<hr class="featurette-divider">
+<div class="row featurette">
+    <div class="col-xs-12 col-md-7 order-md-2">
+	<h2 class="featurette-heading">{{item.title}} {%if item.subtitle%}<small class="text-muted">{{item.subtitle}}</small>{%endif%}</h2>
+	<p class="lead">{{item.introduction|linebreaks}}</p>
+	
+	<a href="{% pageurl item %}" class="btn btn-primary btn-lg active ml-4" role="button" aria-pressed="true">{% trans "View" %}</a>
+    </div>
+    {% if item.image %}
+    <div class="col-md-5 d-none d-md-block">
+	{% image item.image fill-500x500-c100 as featured_img %}
+	<img class="featurette-image img-fluid mx-auto" src="{{featured_img.url}}" />
+    </div>
+    {% endif %}
+</div>

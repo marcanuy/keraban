@@ -237,11 +237,17 @@ class StandardPage(ModelMeta, Page):
     ],                             null=True,
                             blank=True)
 
+    list_child_pages = models.BooleanField(default=False)
+
+    # the name of the template that renders a single child in a list context
+    single_child_page_template = 'home/includes/standard_page_item_in_list.html'
+
     content_panels = Page.content_panels + [
         FieldPanel('subtitle', classname="full"),
         FieldPanel('introduction', classname="full"),
         ImageChooserPanel('image'),
         StreamFieldPanel('body'),
+        FieldPanel('list_child_pages'),
     ]
 
 
@@ -267,6 +273,8 @@ class StandardPage(ModelMeta, Page):
         # add metadata to every standard page
         context['meta'] = self.as_meta(request)
         return context
+
+
 
 class HomePage(ModelMeta, Page):
     """
