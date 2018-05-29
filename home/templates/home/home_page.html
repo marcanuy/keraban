@@ -34,23 +34,7 @@
         </div>
       </div>
 
-
     <div class="container">
-	{% if page.promo_title %}
-	<hr class="featurette-divider">
-	<div class="row featurette">
-	    <div class="col-xs-12 col-md-7">
-		<h2 class="featurette-heading">{{ page.promo_title }} <span class="text-muted">{{ page.promo_subtitle }}</span></h2>
-		<p class="lead">{{ page.promo_text|safe }}</p>
-	    </div>
-	    <div class="col-md-5 d-none d-md-block">
-		{% image page.promo_image fill-500x500-c100 as promo_img %}
-		<img class="featurette-image img-fluid mx-auto" src="{{promo_img.url}}" />
-	    </div>
-	</div>
-	{% endif %}
-
-
 	{% if page.featured_section_1 %}
 	{% with single=page.featured_section_1.specific.single_child_page_template %}
 	    {% include single with item=page.featured_section_1.specific  %}
