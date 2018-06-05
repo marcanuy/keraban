@@ -123,7 +123,7 @@ This structure is most seen in websites for:
 	
 2. Clone the repo:
 
-    	git clone git@github.com:marcanuy/keraban.git
+    	git clone git@gitlab.com:marcanuy/keraban.git
 
 3. Use new site:
 
@@ -240,4 +240,4 @@ button **Add Social Profiles**.
 # Ideas and Questions
 
 - <https://twitter.com/marcanuy/>
-- <https://github.com/marcanuy/keraban/issues>
+- <https://gitlab.com/marcanuy/keraban/issues>
