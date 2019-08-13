@@ -21,7 +21,11 @@ the site itself its made with it.
 - [Installation](#installation)
 - [Running locally](#running-locally)
     - [Admin](#admin)
+- [Customize content](#customize-content)
 - [Deploy](#deploy)
+    - [1. Set up production webserver](#1-set-up-production-webserver)
+        - [Webfaction](#webfaction)
+    - [2. Customize production environment](#2-customize-production-environment)
 - [How to](#how-to)
     - [Add a Page to main menu](#add-a-page-to-main-menu)
     - [Add a feature](#add-a-feature)
@@ -118,10 +122,6 @@ This structure is most seen in websites for:
 
 1. Create a virtual environment:
 
-        mkvirtualenv --python=/usr/bin/python3.6 ~/.virtualenvs/keraban
-
-  Or
-
 	    python3.6 -m venv ~/.virtualenvs/keraban/
 	
 2. Clone the repo:
@@ -132,17 +132,21 @@ This structure is most seen in websites for:
 
     	cd keraban
         echo `pwd` > ~/.virtualenvs/keraban/.project
-    	workon keraban	
+    	source ~/.virtualenvs/keraban/bin/activate
 
-4. Generate site CSS
+4. Install deps
+
+		pip3 install -r requirements.txt
+
+5. Generate site CSS
 
     	make compile-sass
 	
-5. Generate database
+6. Generate database
 
 		./manage.py migrate
 
-6. Load website data with a fixture
+7. Load website data with a fixture
 
         ./manage.py load_initial_data
 
@@ -160,15 +164,70 @@ Super admin credentials:
 - user: admin
 - pass: mypass1234
 
-#  Customize content
+##  Customize content
 
 1. Adjust your site hostname at http://localhost:8000/admin/sites/ 
+2. Edit pages with your content
 
 # Deploy
 
+## 1. Set up production webserver
+
+Considering you have already customized your website locally, this
+section describes how to set up your webserver with the new site.
+
+Skip it to next step if you already use another one.
+
+### Webfaction
+
+[Webfaction](https://www.webfaction.com/?aid=28835) is a shared
+hosting environment with support for Python and Django.
+
+1. Create a new
+   [app](https://my.webfaction.com/new-application?aid=28835).
+   - Fill form data:
+	 - Name: myapp_keraban
+	 - App Category: mod_wsgi
+	 - App type: Django 2.0.5 (mod_wsgi 4.6.4/Python3.6)
+	 - Hit Save button
+2. Access server through SSH after looking up your server address
+   
+	    ssh webfactionserver
+		cd webapps/proaprado_keraban
+
+3. If you are installing it Create a virtualenv
+
+		python3.6 -m venv ~/.virtualenvs/myapp_keraban
+
+4. Remove the Python interpreter installed by default to use the one
+   from virtualenv and the default django app
+
+		rm -r lib/
+		rm -r myproject/myproject/
+		
+5. Set up Apache to serve your website, edit
+   **~/webapps/myapp_keraban/apache2/conf/httpd.conf** and change
+   these keys (add the first one and modify the second one). Change
+   **myuser** with your webfaction user:
+
+		WSGIPythonHome /home/myuser/.virtualenvs/myapp_keraban
+		WSGIDaemonProcess myapp_keraban processes=2 threads=12 python-path=/home/myuser/webapps/myapp_keraban/myproject
+		WSGIScriptAlias / /home/myuser/webapps/proaprado_keraban/myproject/keraban/wsgi.py
+		
+	- **Python version should match the modwsgi used by Apache or it
+      won't work**
+
+6. Copy the contents of your local modified keraban instance to **webfaction:webapps/myapp_keraban/myproject/**
+
+7. Restart Apache
+
+		./myapp_keraban/apache2/bin/restart
+
+## 2. Customize production environment
+
 Adjust server after getting the files on the server:
 
-1. Copy `/_env.skeleton` to `/.env`
+1. Copy `/_env.skeleton` to `/.env` (or set up environment variables)
 2. Customize `/.env` with your environment variables values
    - `.env` is processed by <https://github.com/jpadilla/django-dotenv>
    - Choose to use `keraban.settings.production` as the `DJANGO_SETTINGS_MODULE`
