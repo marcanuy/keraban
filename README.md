@@ -110,7 +110,10 @@ This structure is most seen in websites for:
 - environment variables: **django-dotenv**
 - media: **django-storages**
 - google analytics: **django-analytical**
-
+- database 
+  - develoment: sqlite3
+  - production: [dj-database-url](https://github.com/kennethreitz/dj-database-url)
+  
 # Installation
 
 1. Create a virtual environment:
