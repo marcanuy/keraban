@@ -15,7 +15,7 @@ django-modelcluster==4.4
 django-storages==1.6.6
 django-taggit==0.24.0
 django-treebeard==4.3
-djangorestframework==3.10.2
+djangorestframework==3.11.2
 docutils==0.14
 draftjs-exporter==2.1.6
 html5lib==1.0.1
